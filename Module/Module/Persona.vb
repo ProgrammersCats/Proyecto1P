@@ -27,6 +27,15 @@
             _direccion = value
         End Set
     End Property
+    Private _telefono As String
+    Public Property Telefono() As String
+        Get
+            Return _telefono
+        End Get
+        Set(ByVal value As String)
+            _telefono = value
+        End Set
+    End Property
 
     Public Sub New()
 

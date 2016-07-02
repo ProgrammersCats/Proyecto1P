@@ -37,8 +37,8 @@
         End Set
     End Property
 
-    Private _detalles As ArrayList
-    Public Property Detalle() As ArrayList
+    Private _detalles As New ArrayList()
+    Public Property Detalles() As ArrayList
         Get
             Return _detalles
         End Get
@@ -70,8 +70,30 @@
     Public Sub New(numero As String)
         Me.NumeroFactura = numero
     End Sub
+    Public Sub MostrarFactura()
+        Dim cli As New Cliente("Paul", "Valle", "Norte", "001", "0985455")
+        Dim det As New Detalle("001554")
+        Dim lugar As New Provincia()
+        Me.LugarEmision = lugar
+        Me.Detalles.Add(det)
+        Cliente = cli
+        Console.WriteLine("--------------------------------------------------------------------------------" +
+                            "Id Factura: " + vbTab + Me.NumeroFactura + vbTab + vbTab + vbTab + "Fecha: " + vbTab + Me.Fecha + vbNewLine +
+                            "Nombre: " + vbTab + Cliente.Nombre + vbTab + vbTab + vbTab + "RUC: " + vbTab + Cliente.Ruc + vbNewLine +
+                            "Direccion: " + vbTab + Cliente.Direccion + vbTab + vbTab + vbTab + "Telefono: " + vbTab + Cliente.Telefono + vbNewLine +
+                          "--------------------------------------------------------------------------------" + vbNewLine +
+                          "                                    DETALLE                                     " + vbNewLine +
+                          "--------------------------------------------------------------------------------" + vbNewLine +
+                            "Codigo" + vbTab + vbTab + "Descripcion" + vbTab + "Cantidad" + vbTab + "Precio" + vbTab + vbTab + "Total" + vbNewLine +
+                          "================================================================================")
+        For Each deta As Detalle In Me.Detalles
+            Console.WriteLine(deta.ToString)
+        Next
+        Console.WriteLine("--------------------------------------------------------------------------------" + vbNewLine +
+                            "Subtotal: " & Me.Subtotal & vbTab + vbTab + vbTab + "IVA: " + vbTab & Me.LugarEmision.Iva & vbTab + vbTab + vbTab + "Total: " & Me.Total & vbNewLine +
+                          "--------------------------------------------------------------------------------")
 
-    Public Overrides Function ToString() As String
-        Return MyBase.ToString()
-    End Function
+    End Sub
+
+
 End Class
