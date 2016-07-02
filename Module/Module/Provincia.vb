@@ -9,6 +9,16 @@
         End Set
     End Property
 
+    Private _capital As String
+    Public Property Capital As String
+        Get
+            Return _capital
+        End Get
+        Set(ByVal value As String)
+            _capital = value
+        End Set
+    End Property
+
     Private _iva As Double
     Public Property Iva() As Double
         Get
