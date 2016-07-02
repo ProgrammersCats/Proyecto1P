@@ -18,14 +18,24 @@
             _apellido = value
         End Set
     End Property
+    Private _direccion As String
+    Public Property Direccion() As String
+        Get
+            Return _direccion
+        End Get
+        Set(ByVal value As String)
+            _direccion = value
+        End Set
+    End Property
 
     Public Sub New()
 
     End Sub
 
-    Public Sub New(nombre As String, apellido As String)
+    Public Sub New(nombre As String, apellido As String, direccion As String)
         Me.Nombre = nombre
         Me.Apellido = apellido
+        Me.Direccion = direccion
     End Sub
 
 
