@@ -1,4 +1,6 @@
-﻿Module Module1
+﻿Imports System.Xml
+
+Module Module1
 
     Sub Main()
         'For i As Integer = 0 To 5 Step 1
@@ -9,6 +11,8 @@
         'Dim fac As New Factura("222222")
         'fac.MostrarFactura()
         'Dim flag1 As String = 0
+        Dim repositorio As New RepositorioProductos()
+        repositorio.cargarDatos()
         Do While (True)
             Console.WriteLine("*************" + vbTab + " INICIAR SESION" + vbTab + "************")
             Console.WriteLine("1. Administrador")
@@ -36,9 +40,13 @@
                             Console.WriteLine("Eliga una opcion(1-4): ")
                             Dim op2 As Short
                             op2 = Console.ReadLine()
+                            Dim pathProd As String = ("E:\Visual\Proyecto1P\Module\Module\productos.xml")
+                            Dim XmlDom As New XmlDocument()
                             Select Case op2
-                                Case 1
 
+                                Case 1
+                                    'adm.AgregarProducto()
+                                    repositorio.MostrarInventario()
                                 Case 2
 
                                 Case 3
@@ -54,6 +62,7 @@
                     End If
 
                 Case 2
+                    Console.WriteLine("==============" + vbTab + "VENDEDOR" + vbTab + "==============")
 
                 Case 3
                     'flag1 = flag1 + 1

@@ -37,7 +37,7 @@
     End Property
 
     Sub New(codigo As String)
-        Dim pro As New Producto("Gato", 10.0, 12.0)
+        Dim pro As New Producto("00", "Gato", 10.0, 12.0)
         Me.Item = pro
         Me.Codigo = codigo
         Me.Cantidad = 5

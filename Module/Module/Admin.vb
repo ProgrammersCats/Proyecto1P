@@ -37,7 +37,15 @@ Public Class Admin
         MyBase.New(nombre, apellido, direccion)
         Me.IdAdmin = idAdministrador
     End Sub
-
+    Private _repositorio As RepositorioProductos
+    Public Property Repositorio() As RepositorioProductos
+        Get
+            Return _repositorio
+        End Get
+        Set(ByVal value As RepositorioProductos)
+            _repositorio = value
+        End Set
+    End Property
     Public Function ValidarDatos()
         Dim path As String = "E:\Visual\Proyecto1P\Module\Module\admin.xml"
         Dim XmlDom As New XmlDocument()
@@ -66,4 +74,20 @@ Public Class Admin
         End If
         Return False
     End Function
+    Public Sub AgregarProducto()
+        Dim codigo, descripcion, precioFab, pvp As String
+
+        Console.WriteLine(" /////// AGREGAR PRODUCTO \\\\\\\")
+        Console.WriteLine("Codigo: ")
+        codigo = Console.ReadLine()
+        Console.WriteLine("Descripcion: ")
+        descripcion = Console.ReadLine()
+        Console.WriteLine("Precio de Fabrica: ")
+        precioFab = Console.ReadLine()
+        Console.WriteLine("PVP: ")
+        pvp = Console.ReadLine()
+
+
+    End Sub
+
 End Class
