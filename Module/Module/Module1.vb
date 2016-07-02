@@ -5,6 +5,7 @@
             Console.WriteLine("Te amo mucho")
             Console.WriteLine("Te amo muuuuuuucho mas <3")
         Next
+        Console.WriteLine("Primer cambio")
         Console.ReadLine()
     End Sub
 
