@@ -1,0 +1,41 @@
+﻿<?xml version="1.0"?>
+<collection shelf="Inventario">
+	<item>
+		<id_producto>001</id_producto>
+		<descripcion>Balon</descripcion>
+		<precio_fabrica>2.00</precio_fabrica>
+		<pvp>2.50</pvp>
+
+		
+	</item>
+	<item>
+		<id_producto>002</id_producto>
+		<descripcion>Bolso</descripcion>
+		<precio_fabrica>10.50</precio_fabrica>
+		<pvp>13.75</pvp>
+	</item>
+	<item>
+		<id_producto>003</id_producto>
+		<descripcion>Maleta</descripcion>
+		<precio_fabrica>15.99</precio_fabrica>
+		<pvp>17.00</pvp>
+	</item>
+	<item>
+		<id_producto>004</id_producto>
+		<descripcion>Cartuchera</descripcion>
+		<precio_fabrica>5.25</precio_fabrica>
+		<pvp>7.99</pvp>
+	</item>
+	<item>
+		<id_producto>005</id_producto>
+		<descripcion>Bicicleta</descripcion>
+		<precio_fabrica>42.50</precio_fabrica>
+		<pvp>44.99</pvp>
+	</item>
+	<item>
+		<id_producto>006</id_producto>
+		<descripcion>Peluche</descripcion>
+		<precio_fabrica>12.60</precio_fabrica>
+		<pvp>14.50</pvp>
+	</item>
+</collection>
