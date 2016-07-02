@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<collection shelf="Administradores">
+	<Admin>
+		<usuario>Deathpaul</usuario>
+		<contraseña>paul</contraseña>
+	</Admin>
+	<Admin>
+		<usuario>Shimberly</usuario>
+		<contraseña>kim</contraseña>
+	</Admin>
+	<Admin>
+		<usuario>Shander</usuario>
+		<contraseña>yander</contraseña>
+	</Admin>
+	<Admin>
+		<usuario>Keila</usuario>
+		<contraseña>gatito</contraseña>
+	</Admin>
+	<Admin>
+		<usuario>Chibi</usuario>
+		<contraseña>paola</contraseña>
+	</Admin>	
+	
+	
+</collection>
