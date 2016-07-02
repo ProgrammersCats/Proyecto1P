@@ -8,4 +8,5 @@
             _numeroFactura = value
         End Set
     End Property
+
 End Class
