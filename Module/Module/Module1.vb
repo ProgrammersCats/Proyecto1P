@@ -8,6 +8,7 @@
         Console.WriteLine("Primer cambio")
         Console.WriteLine("CLASES")
         Console.ReadLine()
+        Console.WriteLine("miau skynet")
     End Sub
 
 End Module
