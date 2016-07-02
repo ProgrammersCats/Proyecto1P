@@ -6,6 +6,7 @@
             Console.WriteLine("Te amo muuuuuuucho mas <3")
         Next
         Console.WriteLine("Primer cambio")
+        Console.WriteLine("CLASES")
         Console.ReadLine()
     End Sub
 

@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Admin.vb" />
     <Compile Include="Cliente.vb" />
+    <Compile Include="Factura.vb" />
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -87,6 +88,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Persona.vb" />
+    <Compile Include="Producto.vb" />
+    <Compile Include="Provincia.vb" />
+    <Compile Include="RepositorioProductos.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
