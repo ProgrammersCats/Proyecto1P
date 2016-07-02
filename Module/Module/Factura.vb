@@ -77,7 +77,7 @@
         Me.LugarEmision = lugar
         Me.Detalles.Add(det)
         Cliente = cli
-        Console.WriteLine("--------------------------------------------------------------------------------" +
+        Console.WriteLine("--------------------------------------------------------------------------------" + vbNewLine +
                             "Id Factura: " + vbTab + Me.NumeroFactura + vbTab + vbTab + vbTab + "Fecha: " + vbTab + Me.Fecha + vbNewLine +
                             "Nombre: " + vbTab + Cliente.Nombre + vbTab + vbTab + vbTab + "RUC: " + vbTab + Cliente.Ruc + vbNewLine +
                             "Direccion: " + vbTab + Cliente.Direccion + vbTab + vbTab + vbTab + "Telefono: " + vbTab + Cliente.Telefono + vbNewLine +
