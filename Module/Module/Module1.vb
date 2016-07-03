@@ -45,7 +45,7 @@ Module Module1
                             Select Case op2
 
                                 Case 1
-                                    'adm.AgregarProducto()
+                                    adm.AgregarProducto()
                                     repositorio.MostrarInventario()
                                 Case 2
 

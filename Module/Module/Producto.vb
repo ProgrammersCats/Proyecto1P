@@ -1,4 +1,6 @@
-﻿Public Class Producto
+﻿Imports System.Xml
+
+Public Class Producto
     Private _nombreProducto As String
     Private _codigoProd As String
     Public Property CodigoProducto() As String
@@ -52,5 +54,24 @@
         Return "Codigo: " + vbTab + Me.CodigoProducto + vbNewLine + "Descripcion: " + vbTab + Me.NombreProducto +
                     vbNewLine + "Precio Fabrica:" & Me.PrecioFabrica & vbNewLine + "PVP:" & Me.Pvp
 
+    End Function
+
+    Friend Function GenerarXml(xmlDom As XmlDocument) As XmlElement
+        Dim item As XmlElement = xmlDom.CreateElement("Item")
+        Dim codigo As XmlElement = xmlDom.CreateElement("id_producto")
+        Dim descripcion As XmlElement = xmlDom.CreateElement("descripcion")
+        Dim precio_fab As XmlElement = xmlDom.CreateElement("precio_fabrica")
+        Dim pvp As XmlElement = xmlDom.CreateElement("pvp")
+
+        codigo.InnerText = Me.CodigoProducto
+        descripcion.InnerText = Me.NombreProducto
+        precio_fab.InnerText = Me.PrecioFabrica
+        pvp.InnerText = Me.Pvp
+
+        item.AppendChild(codigo)
+        item.AppendChild(descripcion)
+        item.AppendChild(precio_fab)
+        item.AppendChild(pvp)
+        Return item
     End Function
 End Class
