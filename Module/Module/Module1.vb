@@ -11,34 +11,37 @@ Module Module1
         'Dim fac As New Factura("222222")
         'fac.MostrarFactura()
         'Dim flag1 As String = 0
-        Dim repositorio As New RepositorioProductos()
-        repositorio.cargarDatos()
+        Dim repositorioProd As New RepositorioProductos()
+        Dim repositorioProv As New RepositorioProvincias()
+        repositorioProd.cargarDatos()
+        repositorioProv.cargarDatos()
+
         Do While (True)
-            Console.WriteLine("*************" + vbTab + " INICIAR SESION" + vbTab + "************")
-            Console.WriteLine("1. Administrador")
-            Console.WriteLine("2. Vendedor")
-            Console.WriteLine("3. Salir")
-            Console.WriteLine("Eliga una opcion(1-3): ")
+            Console.WriteLine("****************************   " + "INICIAR SESION" + "   ***************************")
+            Console.WriteLine("1.  Administrador")
+            Console.WriteLine("2.  Vendedor")
+            Console.WriteLine("3.  Salir")
+            Console.WriteLine("Elija una opcion(1-3): ")
             Dim op1 As Short
             op1 = Console.ReadLine()
-            Console.WriteLine("***************************************")
+            Console.WriteLine("*******************************************************************************")
             Select Case op1
                 Case 1
                     Dim usuario, contraseña As String
-                    Console.WriteLine("Usuario:")
+                    Console.WriteLine("USUARIO :")
                     usuario = Console.ReadLine()
-                    Console.WriteLine("Contraseña:")
+                    Console.WriteLine("CONTRASEÑA :")
                     contraseña = Console.ReadLine()
                     Dim adm As New Admin(usuario, contraseña)
                     If (adm.ValidarDatos()) Then
-                        adm.AsignarRepositorio(repositorio)
+                        adm.AsignarRepositorios(repositorioProd, repositorioProv)
                         Do While (True)
-                            Console.WriteLine("==============" + vbTab + "ADMINISTRADOR" + vbTab + "==============")
-                            Console.WriteLine("1. Agregar Producto")
-                            Console.WriteLine("2. Eliminar Producto")
-                            Console.WriteLine("3. Modificar IVA")
-                            Console.WriteLine("4. Cerrar Sesion")
-                            Console.WriteLine("Eliga una opcion(1-4): ")
+                            Console.WriteLine("================================ " + "ADMINISTRADOR" + " ================================")
+                            Console.WriteLine("1.  Agregar Producto")
+                            Console.WriteLine("2.  Eliminar Producto")
+                            Console.WriteLine("3.  Modificar IVA")
+                            Console.WriteLine("4.  Cerrar Sesion")
+                            Console.WriteLine("Elija una opcion(1-4): ")
                             Dim op2 As Short
                             op2 = Console.ReadLine()
                             Dim pathProd As String = ("E:\Visual\Proyecto1P\Module\Module\productos.xml")
@@ -46,33 +49,33 @@ Module Module1
                             Select Case op2
 
                                 Case 1
-                                    repositorio.MostrarInventario()
-                                    'adm.AgregarProducto()
-                                    'repositorio.MostrarInventario()
+                                    repositorioProd.MostrarInventario()
+                                    adm.AgregarProducto()
+                                    repositorioProd.MostrarInventario()
                                 Case 2
-                                    repositorio.MostrarInventario()
+                                    repositorioProd.MostrarInventario()
                                     adm.EliminarProducto()
-                                    repositorio.MostrarInventario()
+                                    repositorioProd.MostrarInventario()
                                 Case 3
 
                                 Case 4
                                     Exit Do
                                 Case Else
-                                    Console.WriteLine(" Opcion Incorrecta !! ")
+                                    Console.WriteLine(" OPCION INCORRECTA !! ")
                             End Select
                         Loop
                     Else
-                        Console.WriteLine("Usuario o contraseña incorrecta !!")
+                        Console.WriteLine(" USUARIO O CONTRASEÑA INCORRECTA !!")
                     End If
 
                 Case 2
-                    Console.WriteLine("==============" + vbTab + "VENDEDOR" + vbTab + "==============")
+                    Console.WriteLine("=============================== " + "VENDEDOR" + " ===============================")
 
                 Case 3
                     'flag1 = flag1 + 1
                     End
                 Case Else
-                    Console.WriteLine(" Opcion Incorrecta !! ")
+                    Console.WriteLine(" OPCION INCORRECTA !! ")
 
             End Select
         Loop

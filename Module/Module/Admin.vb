@@ -38,7 +38,7 @@ Public Class Admin
         Me.IdAdmin = idAdministrador
     End Sub
     Private _repositorio As RepositorioProductos
-    Public Property Repositorio() As RepositorioProductos
+    Public Property RepositorioProductos() As RepositorioProductos
         Get
             Return _repositorio
         End Get
@@ -56,8 +56,9 @@ Public Class Admin
         End Set
     End Property
 
-    Public Sub AsignarRepositorio(repositorio As RepositorioProductos)
-        Me.Repositorio = repositorio
+    Public Sub AsignarRepositorios(repositorioProd As RepositorioProductos, repositorioProv As RepositorioProvincias)
+        Me.RepositorioProductos = repositorioProd
+        Me.RepositorioProvincias = repositorioProv
     End Sub
 
     Public Function ValidarDatos()
@@ -93,15 +94,15 @@ Public Class Admin
         Dim cod As Short = 0
         Console.WriteLine("Ingrese el codigo del producto a eliminar: ")
         cod = Console.ReadLine()
-        Repositorio.EliminarProductoPorCodigo(cod)
-        Me.Repositorio.actualizarXml()
-        Console.WriteLine("*** PRODUCTO ELIMINADO ***")
+        RepositorioProductos.EliminarProductoPorCodigo(cod)
+        Me.RepositorioProductos.actualizarXml()
+        Console.WriteLine("********** PRODUCTO ELIMINADO **********")
     End Sub
 
     Public Sub AgregarProducto()
         Dim codigo, descripcion, precioFab, pvp As String
 
-        Console.WriteLine(" /////// AGREGAR PRODUCTO \\\\\\\")
+        Console.WriteLine(" /////////// AGREGAR PRODUCTO \\\\\\\\\\\")
         Console.WriteLine("Codigo: ")
         codigo = Console.ReadLine()
         Console.WriteLine("Descripcion: ")
@@ -111,9 +112,9 @@ Public Class Admin
         Console.WriteLine("PVP: ")
         pvp = Console.ReadLine()
         Dim newProd As New Producto(codigo, descripcion, CDbl(pvp), CDbl(precioFab))
-        Me.Repositorio.AgregarProducto(newProd)
-        Me.Repositorio.actualizarXml()
-        Console.WriteLine("*** GUARDADO EXITOSO ***")
+        Me.RepositorioProductos.AgregarProducto(newProd)
+        Me.RepositorioProductos.actualizarXml()
+        Console.WriteLine("********** GUARDADO EXITOSO **********")
     End Sub
 
 End Class

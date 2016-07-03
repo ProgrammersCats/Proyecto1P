@@ -17,4 +17,10 @@
     <precio_fabrica>10</precio_fabrica>
     <pvp>11</pvp>
   </Item>
+  <Item>
+    <id_producto>004</id_producto>
+    <descripcion>Cartuchera</descripcion>
+    <precio_fabrica>10</precio_fabrica>
+    <pvp>14</pvp>
+  </Item>
 </collection>
