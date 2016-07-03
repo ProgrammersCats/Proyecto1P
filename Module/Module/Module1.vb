@@ -16,7 +16,7 @@ Module Module1
         Dim pagos As New TipoPagos()
         repositorioProd.CargarDatos()
         repositorioProv.CargarDatos()
-        'pagos.CargarDatos()
+        pagos.CargarDatos()
         Dim usuario, contraseña As String
         Do While (True)
             Console.WriteLine("****************************   " + "INICIAR SESION" + "   ***************************")
@@ -65,7 +65,7 @@ Module Module1
                                     adm.ModificarIva()
                                     repositorioProv.MostrarProvincias()
                                 Case 4
-
+                                    Console.WriteLine(pagos.ToString)
                                 Case 5
                                     Exit Do
                                 Case Else

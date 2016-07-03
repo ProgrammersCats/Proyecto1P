@@ -31,22 +31,25 @@ Public Class TipoPagos
         End Set
     End Property
 
-    Friend Sub CargarDatos()
-        Dim path As String = "E:\Visual\Proyecto1P\Module\Module\tipos_pagos.xml"
+    Public Sub CargarDatos()
+        Dim path As String = "E:\Visual\Proyecto1P\Module\Module\tiposPagos.xml"
         Dim xmlDom As New XmlDocument()
         xmlDom.Load(path)
         Dim raiz As XmlNodeList = xmlDom.GetElementsByTagName("collection")
         For Each nodo As XmlNode In raiz
             For Each tipo As XmlNode In nodo.ChildNodes
-                Select Case tipo.Name
-                    Case "efectivo"
-                        Me.Efectivo = tipo.InnerText
-                    Case "tarjeta_credito"
-                        Me.TarjetaCredito = tipo.InnerText
-                    Case "dinero_electronico"
-                        Me.DineroElectronico = tipo.InnerText
+                For Each datos As XmlNode In tipo.ChildNodes
+                    Select Case datos.Name
+                        Case "efectivo"
+                            Me.Efectivo = datos.InnerText
+                        Case "tarjeta_credito"
+                            Me.TarjetaCredito = datos.InnerText
+                        Case "dinero_electronico"
+                            Me.DineroElectronico = datos.InnerText
 
-                End Select
+                    End Select
+                Next
+
             Next
         Next
     End Sub
@@ -61,4 +64,10 @@ Public Class TipoPagos
     Sub New()
 
     End Sub
+
+    Public Overrides Function ToString() As String
+        Return "| Tipo de pago" + vbTab + vbTab + " |" + vbTab + " Valor" + vbTab + " | " + vbNewLine +
+        "|Efectivo: " + vbTab + vbTab + " |" + vbTab & Me.Efectivo & " |" + vbTab + vbNewLine + "|Tarjeta de Credito: " + vbTab + " |" + vbTab & Me.TarjetaCredito & " |" + vbNewLine + "|Dinero electronico: " + vbTab + " |" + vbTab & Me.DineroElectronico & " |"
+
+    End Function
 End Class

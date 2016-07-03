@@ -28,7 +28,6 @@ Public Class Vendedor
                                 If (Me.Nombre.Contains(datos.InnerText)) Then
                                     cont = cont + 1
                                 End If
-
                             Case "contraseña"
                                 If (Me.Contraseña.Contains(datos.InnerText)) Then
                                     cont = cont + 1
