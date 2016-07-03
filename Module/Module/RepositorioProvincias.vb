@@ -50,7 +50,7 @@ Public Class RepositorioProvincias
     Public Sub MostrarProvincias()
         Console.WriteLine("************************** LISTA DE PROVINCIAS ****************************")
         Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
-        Console.WriteLine("|" + "id" + vbTab + " IVA % " + vbTab + vbTab + " | " + vbTab + vbTab + "   NOMBRE   " + vbTab + vbTab + "|")
+        Console.WriteLine("|" + "ID  |" + vbTab + " IVA % " + vbTab + vbTab + " | " + vbTab + vbTab + "   NOMBRE   " + vbTab + vbTab)
         Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
         For Each provincia As Provincia In Me.ArrayProvincias
             Console.WriteLine(provincia.ToString())
