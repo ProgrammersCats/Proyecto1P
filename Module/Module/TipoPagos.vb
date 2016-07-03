@@ -64,10 +64,25 @@ Public Class TipoPagos
     Sub New()
 
     End Sub
+    Public Sub ModificarPagos()
+        Dim opcion As String = 0
+        Console.WriteLine("Escriba el nombre del tipo de pago que desea modificar: ")
+        opcion = Console.ReadLine()
+        Select Case opcion
+            Case 0
 
+            Case Else
+                Console.WriteLine(" Nombre incorrecto ")
+        End Select
+    End Sub
     Public Overrides Function ToString() As String
-        Return "| Tipo de pago" + vbTab + vbTab + " |" + vbTab + " Valor" + vbTab + " | " + vbNewLine +
-        "|Efectivo: " + vbTab + vbTab + " |" + vbTab & Me.Efectivo & " |" + vbTab + vbNewLine + "|Tarjeta de Credito: " + vbTab + " |" + vbTab & Me.TarjetaCredito & " |" + vbNewLine + "|Dinero electronico: " + vbTab + " |" + vbTab & Me.DineroElectronico & " |"
 
+        Return "************************** TIPOS DE PAGO ****************************" + vbNewLine +
+            "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - " + vbNewLine +
+        "| Tipo" + vbTab + vbTab + vbTab + " |" + vbTab + " Valor" + vbTab + " | " + vbNewLine +
+        "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - " + vbNewLine +
+        "|Efectivo: " + vbTab + vbTab + " |" + vbTab & Me.Efectivo & vbTab + " |" + vbTab + vbNewLine + "|Tarjeta de Credito: " + vbTab + " |" + vbTab & Me.TarjetaCredito & vbTab +
+        " |" + vbNewLine + "|Dinero electronico: " + vbTab + " |" + vbTab & Me.DineroElectronico & vbTab + " |" + vbNewLine +
+        "......................................................................"
     End Function
 End Class
