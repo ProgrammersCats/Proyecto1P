@@ -93,6 +93,7 @@
     <Compile Include="Provincia.vb" />
     <Compile Include="RepositorioProductos.vb" />
     <Compile Include="RepositorioProvincias.vb" />
+    <Compile Include="TipoPagos.vb" />
     <Compile Include="Vendedor.vb" />
   </ItemGroup>
   <ItemGroup>
