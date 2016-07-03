@@ -50,9 +50,11 @@ Public Class RepositorioProductos
 
     Public Sub MostrarInventario()
         Console.WriteLine("********* INVENTARIO DE PRODUCTOS ***********")
+        Console.WriteLine(" Id Producto" + vbTab + "|" + vbTab + "Descripcion" + vbTab + vbTab + "|" + vbTab + "Precio Fabrica" + vbTab + "|" + vbTab + "PVP")
         For Each producto As Producto In Me.ArrayProductos
-            Console.WriteLine(producto.ToString() + vbNewLine + "....................................")
+            Console.WriteLine(producto.ToString())
         Next
+        Console.WriteLine("..............................................................................")
     End Sub
 
     Public Sub actualizarXml()
@@ -78,6 +80,7 @@ Public Class RepositorioProductos
         For Each prod As Producto In ArrayProductos
             If (prod.CodigoProducto = cod) Then
                 Me.ArrayProductos.RemoveAt(indice)
+                Exit For
             End If
             indice = indice + 1
         Next

@@ -1,4 +1,6 @@
-﻿Public Class Provincia
+﻿Imports System.Xml
+
+Public Class Provincia
     Private _nombreProvincia As String
     Public Property NombreProvincia() As String
         Get
@@ -37,4 +39,13 @@
     Public Sub New()
 
     End Sub
+
+    Public Overrides Function ToString() As String
+        Return "Nombre: " + vbTab + Me.NombreProvincia + vbNewLine + "Capital: " + vbTab + Me.Capital +
+                    vbNewLine + "IVA: " + vbTab & Me.Iva
+    End Function
+
+    Friend Function GenerarXml(xmlDom As XmlDocument) As XmlElement
+        Throw New NotImplementedException()
+    End Function
 End Class

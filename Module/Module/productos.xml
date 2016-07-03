@@ -11,4 +11,10 @@
     <precio_fabrica>15</precio_fabrica>
     <pvp>20</pvp>
   </Item>
+  <Item>
+    <id_producto>003</id_producto>
+    <descripcion>Gatito</descripcion>
+    <precio_fabrica>10</precio_fabrica>
+    <pvp>11</pvp>
+  </Item>
 </collection>

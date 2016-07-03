@@ -94,6 +94,8 @@ Public Class Admin
         Console.WriteLine("Ingrese el codigo del producto a eliminar: ")
         cod = Console.ReadLine()
         Repositorio.EliminarProductoPorCodigo(cod)
+        Me.Repositorio.actualizarXml()
+        Console.WriteLine("*** PRODUCTO ELIMINADO ***")
     End Sub
 
     Public Sub AgregarProducto()
@@ -111,6 +113,7 @@ Public Class Admin
         Dim newProd As New Producto(codigo, descripcion, CDbl(pvp), CDbl(precioFab))
         Me.Repositorio.AgregarProducto(newProd)
         Me.Repositorio.actualizarXml()
+        Console.WriteLine("*** GUARDADO EXITOSO ***")
     End Sub
 
 End Class

@@ -51,8 +51,8 @@ Public Class Producto
     End Sub
 
     Public Overrides Function ToString() As String
-        Return "Codigo: " + vbTab + Me.CodigoProducto + vbNewLine + "Descripcion: " + vbTab + Me.NombreProducto +
-                    vbNewLine + "Precio Fabrica:" + vbTab & Me.PrecioFabrica & vbNewLine + "PVP:" + vbTab + vbTab & Me.Pvp
+        Return "Codigo: " + vbTab + Me.CodigoProducto + vbTab + "Descripcion: " + vbTab + Me.NombreProducto +
+                    vbTab + "Precio Fabrica:" + vbTab & Me.PrecioFabrica & vbTab + "PVP:" + vbTab + vbTab & Me.Pvp
 
     End Function
 
