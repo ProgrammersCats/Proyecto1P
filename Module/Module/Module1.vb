@@ -13,9 +13,10 @@ Module Module1
         'Dim flag1 As String = 0
         Dim repositorioProd As New RepositorioProductos()
         Dim repositorioProv As New RepositorioProvincias()
-        repositorioProd.cargarDatos()
-        repositorioProv.cargarDatos()
-
+        Dim pagos As New TipoPagos()
+        repositorioProd.CargarDatos()
+        repositorioProv.CargarDatos()
+        'pagos.CargarDatos()
         Do While (True)
             Console.WriteLine("****************************   " + "INICIAR SESION" + "   ***************************")
             Console.WriteLine("1.  Administrador")
@@ -33,6 +34,10 @@ Module Module1
                     Console.WriteLine("CONTRASEÑA :")
                     contraseña = Console.ReadLine()
                     Dim adm As New Admin(usuario, contraseña)
+                    Dim ven As New Vendedor()
+                    adm.Miau()
+                    ven.Miau()
+
                     If (adm.ValidarDatos()) Then
                         adm.AsignarRepositorios(repositorioProd, repositorioProv)
                         Do While (True)
@@ -40,8 +45,9 @@ Module Module1
                             Console.WriteLine("1.  Agregar Producto")
                             Console.WriteLine("2.  Eliminar Producto")
                             Console.WriteLine("3.  Modificar IVA")
-                            Console.WriteLine("4.  Cerrar Sesion")
-                            Console.WriteLine("Elija una opcion(1-4): ")
+                            Console.WriteLine("4.  Modificar Tipos de Pago")
+                            Console.WriteLine("5.  Cerrar Sesion")
+                            Console.WriteLine("Elija una opcion(1-5): ")
                             Dim op2 As Short
                             op2 = Console.ReadLine()
                             Dim pathProd As String = ("E:\Visual\Proyecto1P\Module\Module\productos.xml")
@@ -61,6 +67,8 @@ Module Module1
                                     adm.ModificarIva()
                                     repositorioProv.MostrarProvincias()
                                 Case 4
+
+                                Case 5
                                     Exit Do
                                 Case Else
                                     Console.WriteLine(" OPCION INCORRECTA !! ")
@@ -72,7 +80,16 @@ Module Module1
 
                 Case 2
                     Console.WriteLine("=============================== " + "VENDEDOR" + " ===============================")
-                    Console.WriteLine(" /////  DATOS CLIENTE \\\\\")
+                    Dim usuario, contraseña As String
+                    Console.WriteLine("USUARIO :")
+                    usuario = Console.ReadLine()
+                    Console.WriteLine("CONTRASEÑA :")
+                    contraseña = Console.ReadLine()
+                    Dim adm As New Admin(usuario, contraseña)
+                    If (adm.ValidarDatos()) Then
+                        Console.WriteLine(" /////  DATOS CLIENTE \\\\\")
+                    End If
+
 
 
                 Case 3

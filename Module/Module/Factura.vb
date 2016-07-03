@@ -26,6 +26,15 @@
             _cliente = value
         End Set
     End Property
+    Private _vendedor As Vendedor
+    Public Property Vendedor() As Vendedor
+        Get
+            Return _vendedor
+        End Get
+        Set(ByVal value As Vendedor)
+            _vendedor = value
+        End Set
+    End Property
 
     Private _lugarEmi As Provincia
     Public Property LugarEmision() As Provincia

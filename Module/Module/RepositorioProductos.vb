@@ -20,7 +20,7 @@ Public Class RepositorioProductos
 
     End Sub
 
-    Public Sub cargarDatos()
+    Public Sub CargarDatos()
         Dim path As String = "E:\Visual\Proyecto1P\Module\Module\productos.xml"
         Dim xmlDom As New XmlDocument()
         xmlDom.Load(path)
@@ -59,7 +59,7 @@ Public Class RepositorioProductos
         Console.WriteLine("...............................................................................")
     End Sub
 
-    Public Sub actualizarXml()
+    Public Sub ActualizarXml()
         Dim nodoRaiz As XmlElement = xmlDom.CreateElement("nodoRaiz")
         Dim collection As XmlElement = xmlDom.CreateElement("collection")
         nodoRaiz.AppendChild(collection)

@@ -61,34 +61,34 @@ Public Class Admin
         Me.RepositorioProvincias = repositorioProv
     End Sub
 
-    Public Function ValidarDatos()
-        Dim path As String = "E:\Visual\Proyecto1P\Module\Module\admin.xml"
-        Dim XmlDom As New XmlDocument()
-        XmlDom.Load(path)
-        Dim raiz As XmlNodeList = XmlDom.GetElementsByTagName("collection")
-        Dim cont As Short = 0
-        For Each nodo As XmlNode In raiz
-            For Each admin As XmlNode In nodo.ChildNodes
-                For Each datos As XmlNode In admin.ChildNodes
-                    Select Case datos.Name
-                        Case "usuario"
-                            If (Me.Usuario.Contains(datos.InnerText)) Then
-                                cont = cont + 1
-                            End If
+    'Public Function ValidarDatos()
+    '    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\admin.xml"
+    '    Dim XmlDom As New XmlDocument()
+    '    XmlDom.Load(path)
+    '    Dim raiz As XmlNodeList = XmlDom.GetElementsByTagName("collection")
+    '    Dim cont As Short = 0
+    '    For Each nodo As XmlNode In raiz
+    '        For Each admin As XmlNode In nodo.ChildNodes
+    '            For Each datos As XmlNode In admin.ChildNodes
+    '                Select Case datos.Name
+    '                    Case "usuario"
+    '                        If (Me.Usuario.Contains(datos.InnerText)) Then
+    '                            cont = cont + 1
+    '                        End If
 
-                        Case "contraseña"
-                            If (Me.Contraseña.Contains(datos.InnerText)) Then
-                                cont = cont + 1
-                            End If
-                    End Select
-                Next
-            Next
-        Next
-        If (cont = 2) Then
-            Return True
-        End If
-        Return False
-    End Function
+    '                    Case "contraseña"
+    '                        If (Me.Contraseña.Contains(datos.InnerText)) Then
+    '                            cont = cont + 1
+    '                        End If
+    '                End Select
+    '            Next
+    '        Next
+    '    Next
+    '    If (cont = 2) Then
+    '        Return True
+    '    End If
+    '    Return False
+    'End Function
 
     Public Sub ModificarIva()
 
@@ -101,7 +101,7 @@ Public Class Admin
                 Console.WriteLine("Ingrese el nuevo valor del IVA: ")
                 Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva = Console.ReadLine
                 Console.WriteLine("El IVA fue modificado a: " & Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva & "%")
-                Me.RepositorioProvincias.actualizarXml()
+                Me.RepositorioProvincias.ActualizarXml()
                 Exit While
             Else
                 Console.WriteLine(" OPCION INCORRECTA !!")
@@ -115,7 +115,7 @@ Public Class Admin
         Console.WriteLine("Ingrese el codigo del producto a eliminar: ")
         cod = Console.ReadLine()
         RepositorioProductos.EliminarProductoPorCodigo(cod)
-        Me.RepositorioProductos.actualizarXml()
+        Me.RepositorioProductos.ActualizarXml()
         Console.WriteLine("********** PRODUCTO ELIMINADO **********")
     End Sub
 
@@ -133,8 +133,11 @@ Public Class Admin
         pvp = Console.ReadLine()
         Dim newProd As New Producto(codigo, descripcion, CDbl(pvp), CDbl(precioFab))
         Me.RepositorioProductos.AgregarProducto(newProd)
-        Me.RepositorioProductos.actualizarXml()
+        Me.RepositorioProductos.ActualizarXml()
         Console.WriteLine("********** GUARDADO EXITOSO **********")
     End Sub
 
+    Public Overrides Sub ValidarDatos()
+        Console.WriteLine("Hola")
+    End Sub
 End Class

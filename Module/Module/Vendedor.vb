@@ -9,5 +9,7 @@
             _idVendedor = value
         End Set
     End Property
-
+    Public Overrides Sub ValidarDatos()
+        Console.WriteLine("Vendedor")
+    End Sub
 End Class

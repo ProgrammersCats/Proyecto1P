@@ -47,5 +47,9 @@
         Me.Direccion = direccion
     End Sub
 
+    Public Overridable Sub ValidarDatos()
+
+    End Sub
+
 
 End Class
