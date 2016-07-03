@@ -41,8 +41,7 @@ Public Class Provincia
     End Sub
 
     Public Overrides Function ToString() As String
-        Return "Nombre: " + vbTab + Me.NombreProvincia + vbNewLine + "Capital: " + vbTab + Me.Capital +
-                    vbNewLine + "IVA: " + vbTab & Me.Iva
+        Return "| " & Me.Iva & "%" + vbTab + vbTab + vbTab + vbTab + vbTab + Me.NombreProvincia + "   |"
     End Function
 
     Public Function GenerarXml(xmlDom As XmlDocument)

@@ -57,6 +57,8 @@ Module Module1
                                     adm.EliminarProducto()
                                     repositorioProd.MostrarInventario()
                                 Case 3
+                                    repositorioProv.MostrarProvincias()
+                                    'adm.ModificarIva()
 
                                 Case 4
                                     Exit Do

@@ -90,6 +90,10 @@ Public Class Admin
         Return False
     End Function
 
+    Friend Sub ModificarIva()
+        Throw New NotImplementedException()
+    End Sub
+
     Public Sub EliminarProducto()
         Dim cod As Short = 0
         Console.WriteLine("Ingrese el codigo del producto a eliminar: ")

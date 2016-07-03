@@ -5,7 +5,7 @@ Public Class RepositorioProvincias
     Dim path As String = "E:\Visual\Proyecto1P\Module\Module\provincias.xml"
     Dim xmlDom As New XmlDocument()
 
-    Private _repositorioProv As ArrayList
+    Private _repositorioProv As New ArrayList()
     Public Property ArrayProvincias() As ArrayList
         Get
             Return _repositorioProv
@@ -46,10 +46,14 @@ Public Class RepositorioProvincias
         Next
     End Sub
     Public Sub MostrarProvincias()
-        Console.WriteLine(" LISTA DE PROVINCIAS **")
+        Console.WriteLine("************************** LISTA DE PROVINCIAS ****************************")
+        Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+        Console.WriteLine("| IVA % " + vbTab + vbTab + " | " + vbTab + vbTab + "   NOMBRE   " + vbTab + vbTab + "|")
+        Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
         For Each provincia As Provincia In Me.ArrayProvincias
-            Console.WriteLine(provincia.ToString() + vbNewLine + "....................................")
+            Console.WriteLine(provincia.ToString())
         Next
+        Console.WriteLine("...............................................................................")
     End Sub
 
     Public Sub actualizarXml()
