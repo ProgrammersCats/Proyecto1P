@@ -48,7 +48,7 @@ Module Module1
                             Console.WriteLine("Elija una opcion(1-5): ")
                             Dim op2 As Short
                             op2 = Console.ReadLine()
-                            Dim pathProd As String = ("E:\Visual\Proyecto1P\Module\Module\productos.xml")
+                            Dim pathProd As String = ("C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\productos.xml")
                             Dim XmlDom As New XmlDocument()
                             Select Case op2
 
@@ -78,16 +78,31 @@ Module Module1
 
                 Case 2
                     Console.WriteLine("=============================== " + "VENDEDOR" + " ===============================")
+                    Do While (True)
+                        Console.WriteLine("NOMBRE :")
+                        usuario = Console.ReadLine()
+                        Console.WriteLine("CONTRASEÑA :")
+                        contraseña = Console.ReadLine()
+                        Dim vendedor As New Vendedor(usuario, contraseña)
+                        If (vendedor.ValidarDatos()) Then
+                            Dim nombre, apellido, ruc, direccion, telefono As String
+                            Console.WriteLine(" /////  DATOS CLIENTE \\\\\")
+                            Console.WriteLine("Ingrese nombre:")
+                            nombre = Console.ReadLine()
+                            Console.WriteLine("Ingrese apellido:")
+                            apellido = Console.ReadLine()
+                            Console.WriteLine("Ingrese direccion:")
+                            direccion = Console.ReadLine()
+                            Console.WriteLine("Ingrese RUC:")
+                            ruc = Console.ReadLine()
+                            Console.WriteLine("Ingrese teléfono:")
+                            telefono = Console.ReadLine()
+                            Dim cli As New Cliente(nombre, apellido, direccion, "001", ruc)
 
-                    Console.WriteLine("NOMBRE :")
-                    usuario = Console.ReadLine()
-                    Console.WriteLine("CONTRASEÑA :")
-                    contraseña = Console.ReadLine()
-                    Dim vendedor As New Vendedor(usuario, contraseña)
-                    If (vendedor.ValidarDatos()) Then
-                        Console.WriteLine(" /////  DATOS CLIENTE \\\\\")
-                    End If
-
+                        Else
+                            Console.WriteLine(" USUARIO O CONTRASEÑA INCORRECTA ")
+                        End If
+                    Loop
 
 
                 Case 3
