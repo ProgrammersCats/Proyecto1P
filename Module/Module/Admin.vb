@@ -86,8 +86,8 @@ Public Class Admin
         precioFab = Console.ReadLine()
         Console.WriteLine("PVP: ")
         pvp = Console.ReadLine()
-
-
+        Dim newProd As New Producto(codigo, descripcion, CDbl(pvp), CDbl(precioFab))
+        Me.Repositorio.AgregarProducto(newProd)
     End Sub
 
 End Class
