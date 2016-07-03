@@ -34,7 +34,7 @@ Public Class Provincia
     Public Sub New(nombre As String, capital As String, ivas As Double)
         Me.NombreProvincia = nombre
         Me.Capital = capital
-        Me.Iva = Iva
+        Me.Iva = ivas
     End Sub
     Public Sub New()
 
@@ -45,7 +45,20 @@ Public Class Provincia
                     vbNewLine + "IVA: " + vbTab & Me.Iva
     End Function
 
-    Friend Function GenerarXml(xmlDom As XmlDocument) As XmlElement
-        Throw New NotImplementedException()
+    Public Function GenerarXml(xmlDom As XmlDocument)
+        Dim provincia As XmlElement = xmlDom.CreateElement("provincia")
+        Dim nombre As XmlElement = xmlDom.CreateElement("nombre")
+        Dim capital As XmlElement = xmlDom.CreateElement("capital")
+        Dim iva As XmlElement = xmlDom.CreateElement("iva")
+
+
+        nombre.InnerText = Me.NombreProvincia
+        capital.InnerText = Me.Capital
+        iva.InnerText = Me.Iva
+
+        provincia.AppendChild(nombre)
+        provincia.AppendChild(capital)
+        provincia.AppendChild(iva)
+        Return provincia
     End Function
 End Class

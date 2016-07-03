@@ -49,8 +49,10 @@ Public Class RepositorioProductos
     End Sub
 
     Public Sub MostrarInventario()
-        Console.WriteLine("********* INVENTARIO DE PRODUCTOS ***********")
-        Console.WriteLine(" Id Producto" + vbTab + "|" + vbTab + "Descripcion" + vbTab + vbTab + "|" + vbTab + "Precio Fabrica" + vbTab + "|" + vbTab + "PVP")
+        Console.WriteLine("************************ INVENTARIO DE PRODUCTOS **************************")
+        Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+        Console.WriteLine("| Id Producto" + vbTab + "|" + vbTab + "Descripcion" + vbTab + "|" + "    Precio Fabrica" + vbTab + "|" + vbTab + "PVP   |")
+        Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
         For Each producto As Producto In Me.ArrayProductos
             Console.WriteLine(producto.ToString())
         Next

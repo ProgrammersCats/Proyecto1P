@@ -51,12 +51,12 @@ Public Class Producto
     End Sub
 
     Public Overrides Function ToString() As String
-        Return "Codigo: " + vbTab + Me.CodigoProducto + vbTab + "Descripcion: " + vbTab + Me.NombreProducto +
-                    vbTab + "Precio Fabrica:" + vbTab & Me.PrecioFabrica & vbTab + "PVP:" + vbTab + vbTab & Me.Pvp
+        Return "|    " + Me.CodigoProducto + vbTab + vbTab + Me.NombreProducto +
+                    vbTab + vbTab + vbTab & Me.PrecioFabrica & vbTab + vbTab + vbTab & Me.Pvp & "    |"
 
     End Function
 
-    Friend Function GenerarXml(xmlDom As XmlDocument)
+    Public Function GenerarXml(xmlDom As XmlDocument)
         Dim item As XmlElement = xmlDom.CreateElement("Item")
         Dim codigo As XmlElement = xmlDom.CreateElement("id_producto")
         Dim descripcion As XmlElement = xmlDom.CreateElement("descripcion")

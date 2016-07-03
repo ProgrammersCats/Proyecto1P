@@ -47,8 +47,8 @@ Module Module1
 
                                 Case 1
                                     repositorio.MostrarInventario()
-                                    adm.AgregarProducto()
-                                    repositorio.MostrarInventario()
+                                    'adm.AgregarProducto()
+                                    'repositorio.MostrarInventario()
                                 Case 2
                                     repositorio.MostrarInventario()
                                     adm.EliminarProducto()
