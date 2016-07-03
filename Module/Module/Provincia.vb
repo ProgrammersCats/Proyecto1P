@@ -1,6 +1,15 @@
 ﻿Imports System.Xml
 
 Public Class Provincia
+    Private _idProvincia As String
+    Public Property IdProvincia() As String
+        Get
+            Return _idProvincia
+        End Get
+        Set(ByVal value As String)
+            _idProvincia = value
+        End Set
+    End Property
     Private _nombreProvincia As String
     Public Property NombreProvincia() As String
         Get
@@ -31,7 +40,8 @@ Public Class Provincia
         End Set
     End Property
 
-    Public Sub New(nombre As String, capital As String, ivas As Double)
+    Public Sub New(id As String, nombre As String, capital As String, ivas As Double)
+        Me.IdProvincia = id
         Me.NombreProvincia = nombre
         Me.Capital = capital
         Me.Iva = ivas
@@ -41,20 +51,22 @@ Public Class Provincia
     End Sub
 
     Public Overrides Function ToString() As String
-        Return "| " & Me.Iva & "%" + vbTab + vbTab + vbTab + vbTab + vbTab + Me.NombreProvincia + "   |"
+        Return "| " + Me.IdProvincia + vbTab & Me.Iva & "%" + vbTab + vbTab + vbTab + vbTab + vbTab + Me.NombreProvincia + "   |"
     End Function
 
     Public Function GenerarXml(xmlDom As XmlDocument)
         Dim provincia As XmlElement = xmlDom.CreateElement("provincia")
+        Dim id As XmlElement = xmlDom.CreateElement("id")
         Dim nombre As XmlElement = xmlDom.CreateElement("nombre")
         Dim capital As XmlElement = xmlDom.CreateElement("capital")
         Dim iva As XmlElement = xmlDom.CreateElement("iva")
 
-
+        id.InnerText = Me.IdProvincia
         nombre.InnerText = Me.NombreProvincia
         capital.InnerText = Me.Capital
         iva.InnerText = Me.Iva
 
+        provincia.AppendChild(id)
         provincia.AppendChild(nombre)
         provincia.AppendChild(capital)
         provincia.AppendChild(iva)

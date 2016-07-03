@@ -26,11 +26,13 @@ Public Class RepositorioProvincias
         Dim raiz As XmlNodeList = xmlDom.GetElementsByTagName("collection")
         For Each nodo As XmlNode In raiz
             For Each item As XmlNode In nodo.ChildNodes
-                Dim nombre, capital As String
+                Dim id, nombre, capital As String
                 Dim iva As Double
                 For Each infoItem As XmlNode In item.ChildNodes
 
                     Select Case infoItem.Name
+                        Case "id"
+                            id = infoItem.InnerText
                         Case "nombre"
                             nombre = infoItem.InnerText
                         Case "capital"
@@ -40,7 +42,7 @@ Public Class RepositorioProvincias
                     End Select
 
                 Next
-                Dim prov As New Provincia(nombre, capital, CDbl(iva))
+                Dim prov As New Provincia(id, nombre, capital, CDbl(iva))
                 Me.AgregarProvincia(prov)
             Next
         Next
@@ -48,7 +50,7 @@ Public Class RepositorioProvincias
     Public Sub MostrarProvincias()
         Console.WriteLine("************************** LISTA DE PROVINCIAS ****************************")
         Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
-        Console.WriteLine("| IVA % " + vbTab + vbTab + " | " + vbTab + vbTab + "   NOMBRE   " + vbTab + vbTab + "|")
+        Console.WriteLine("|" + "id" + vbTab + " IVA % " + vbTab + vbTab + " | " + vbTab + vbTab + "   NOMBRE   " + vbTab + vbTab + "|")
         Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
         For Each provincia As Provincia In Me.ArrayProvincias
             Console.WriteLine(provincia.ToString())
