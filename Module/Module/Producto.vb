@@ -56,7 +56,7 @@ Public Class Producto
 
     End Function
 
-    Friend Function GenerarXml(xmlDom As XmlDocument) As XmlElement
+    Friend Function GenerarXml(xmlDom As XmlDocument)
         Dim item As XmlElement = xmlDom.CreateElement("Item")
         Dim codigo As XmlElement = xmlDom.CreateElement("id_producto")
         Dim descripcion As XmlElement = xmlDom.CreateElement("descripcion")

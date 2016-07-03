@@ -46,6 +46,15 @@ Public Class Admin
             _repositorio = value
         End Set
     End Property
+    Private _repositorioProvincias As RepositorioProvincias
+    Public Property RepositorioProvincias() As RepositorioProvincias
+        Get
+            Return _repositorioProvincias
+        End Get
+        Set(ByVal value As RepositorioProvincias)
+            _repositorioProvincias = value
+        End Set
+    End Property
 
     Public Sub AsignarRepositorio(repositorio As RepositorioProductos)
         Me.Repositorio = repositorio
