@@ -90,8 +90,24 @@ Public Class Admin
         Return False
     End Function
 
-    Friend Sub ModificarIva()
-        Throw New NotImplementedException()
+    Public Sub ModificarIva()
+
+        While (True)
+            Console.WriteLine("Elija una opcion (1-24): ")
+            Dim op3 As Short
+            op3 = CShort(Console.ReadLine)
+            If op3 > 0 And op3 < 25 Then
+                Console.WriteLine("Usted eligio: " + Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).NombreProvincia + " con iva: " & Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva & "%")
+                Console.WriteLine("Ingrese el nuevo valor del IVA: ")
+                Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva = Console.ReadLine
+                Console.WriteLine("El IVA fue modificado a: " & Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva & "%")
+                Me.RepositorioProvincias.actualizarXml()
+                Exit While
+            Else
+                Console.WriteLine(" OPCION INCORRECTA !!")
+            End If
+        End While
+
     End Sub
 
     Public Sub EliminarProducto()

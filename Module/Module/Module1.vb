@@ -58,8 +58,8 @@ Module Module1
                                     repositorioProd.MostrarInventario()
                                 Case 3
                                     repositorioProv.MostrarProvincias()
-                                    'adm.ModificarIva()
-
+                                    adm.ModificarIva()
+                                    repositorioProv.MostrarProvincias()
                                 Case 4
                                     Exit Do
                                 Case Else
@@ -72,6 +72,8 @@ Module Module1
 
                 Case 2
                     Console.WriteLine("=============================== " + "VENDEDOR" + " ===============================")
+                    Console.WriteLine(" /////  DATOS CLIENTE \\\\\")
+
 
                 Case 3
                     'flag1 = flag1 + 1
