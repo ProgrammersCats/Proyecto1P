@@ -92,6 +92,7 @@ Module Module1
                             fact.Vendedor = vendedor
                             Console.WriteLine("Funco")
 
+
                         Else
                             Console.WriteLine(" USUARIO O CONTRASEÑA INCORRECTA ")
                         End If
