@@ -16,9 +16,7 @@ Public Class RepositorioProductos
 
     Public Sub AgregarProducto(pro As Producto)
 
-
         Me.ArrayProductos.Add(pro)
-
         'Me.actualizarXml()
     End Sub
 

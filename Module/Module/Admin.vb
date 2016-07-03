@@ -93,6 +93,7 @@ Public Class Admin
         pvp = Console.ReadLine()
         Dim newProd As New Producto(codigo, descripcion, CDbl(pvp), CDbl(precioFab))
         Me.Repositorio.AgregarProducto(newProd)
+        'Me.Repositorio.actualizarXml()
     End Sub
 
 End Class
