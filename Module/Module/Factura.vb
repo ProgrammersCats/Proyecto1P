@@ -79,6 +79,9 @@
     Public Sub New(numero As String)
         Me.NumeroFactura = numero
     End Sub
+    Public Sub New()
+
+    End Sub
     Public Sub MostrarFactura()
         Dim cli As New Cliente("Paul", "Valle", "Norte", "001", "0985455")
         Dim det As New Detalle("001554")

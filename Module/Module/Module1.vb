@@ -16,7 +16,7 @@ Module Module1
         Dim pagos As New TipoPagos()
         repositorioProd.CargarDatos()
         repositorioProv.CargarDatos()
-        pagos.CargarDatos()
+        'pagos.CargarDatos()
         Dim usuario, contraseña As String
         Do While (True)
             Console.WriteLine("****************************   " + "INICIAR SESION" + "   ***************************")
@@ -85,19 +85,12 @@ Module Module1
                         contraseña = Console.ReadLine()
                         Dim vendedor As New Vendedor(usuario, contraseña)
                         If (vendedor.ValidarDatos()) Then
-                            Dim nombre, apellido, ruc, direccion, telefono As String
-                            Console.WriteLine(" /////  DATOS CLIENTE \\\\\")
-                            Console.WriteLine("Ingrese nombre:")
-                            nombre = Console.ReadLine()
-                            Console.WriteLine("Ingrese apellido:")
-                            apellido = Console.ReadLine()
-                            Console.WriteLine("Ingrese direccion:")
-                            direccion = Console.ReadLine()
-                            Console.WriteLine("Ingrese RUC:")
-                            ruc = Console.ReadLine()
-                            Console.WriteLine("Ingrese teléfono:")
-                            telefono = Console.ReadLine()
-                            Dim cli As New Cliente(nombre, apellido, direccion, "001", ruc)
+                            Dim cliente As New Cliente()
+                            cliente.PedirDatosCliente()
+                            Dim fact As New Factura()
+                            fact.Cliente = cliente
+                            fact.Vendedor = vendedor
+                            Console.WriteLine("Funco")
 
                         Else
                             Console.WriteLine(" USUARIO O CONTRASEÑA INCORRECTA ")

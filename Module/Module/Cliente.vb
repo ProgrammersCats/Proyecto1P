@@ -26,4 +26,21 @@
         Me.IdCliente = idcliente
         Me.Ruc = ruc
     End Sub
+    Public Sub New()
+
+    End Sub
+
+    Public Sub PedirDatosCliente()
+        Console.WriteLine(" /////  DATOS CLIENTE \\\\\")
+        Console.WriteLine("Ingrese nombre:")
+        Me.Nombre = Console.ReadLine()
+        Console.WriteLine("Ingrese apellido:")
+        Me.Apellido = Console.ReadLine()
+        Console.WriteLine("Ingrese direccion:")
+        Me.Direccion = Console.ReadLine()
+        Console.WriteLine("Ingrese RUC:")
+        Me.Ruc = Console.ReadLine()
+        Console.WriteLine("Ingrese teléfono:")
+        Me.Telefono = Console.ReadLine()
+    End Sub
 End Class

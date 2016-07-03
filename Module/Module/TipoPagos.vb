@@ -32,7 +32,7 @@ Public Class TipoPagos
     End Property
 
     Public Sub CargarDatos()
-        Dim path As String = "E:\Visual\Proyecto1P\Module\Module\tiposPagos.xml"
+        Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\tiposPagos.xml"
         Dim xmlDom As New XmlDocument()
         xmlDom.Load(path)
         Dim raiz As XmlNodeList = xmlDom.GetElementsByTagName("collection")
