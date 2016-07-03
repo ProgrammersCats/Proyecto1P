@@ -48,7 +48,7 @@ Module Module1
                             Console.WriteLine("Elija una opcion(1-5): ")
                             Dim op2 As Short
                             op2 = Console.ReadLine()
-                            Dim pathProd As String = ("C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\productos.xml")
+                            Dim pathProd As String = ("E:\Visual\Proyecto1P\Module\Module\productos.xml")
                             Dim XmlDom As New XmlDocument()
                             Select Case op2
 

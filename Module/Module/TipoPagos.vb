@@ -1,7 +1,7 @@
 ﻿Imports System.Xml
 
 Public Class TipoPagos
-    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\tiposPagos.xml"
+    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\tiposPagos.xml"
     Dim xmlDom As New XmlDocument()
     Private _efectivo As Double
     Public Property Efectivo() As Double
@@ -118,7 +118,7 @@ Public Class TipoPagos
             "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - " + vbNewLine +
         "| Tipo" + vbTab + vbTab + vbTab + " |" + vbTab + " Valor" + vbTab + " | " + vbNewLine +
         "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - " + vbNewLine +
-        "|1. Efectivo: " + vbTab + vbTab + " |" + vbTab & Me.Efectivo & vbTab + " |" + vbTab + vbNewLine + "|2. Tarjeta de Credito: " + vbTab + " |" + vbTab & Me.TarjetaCredito & vbTab +
+        "|1. Efectivo: " + vbTab + vbTab + vbTab + " |" + vbTab & Me.Efectivo & vbTab + " |" + vbTab + vbNewLine + "|2. Tarjeta de Credito: " + vbTab + " |" + vbTab & Me.TarjetaCredito & vbTab +
         " |" + vbNewLine + "|3. Dinero electronico: " + vbTab + " |" + vbTab & Me.DineroElectronico & vbTab + " |" + vbNewLine +
         "......................................................................"
     End Function

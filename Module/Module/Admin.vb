@@ -78,7 +78,7 @@ Public Class Admin
     End Sub
 
     Public Overrides Function ValidarDatos()
-        Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\admin.xml"
+        Dim path As String = "E:\Visual\Proyecto1P\Module\Module\admin.xml"
         Dim XmlDom As New XmlDocument()
         XmlDom.Load(path)
         Dim raiz As XmlNodeList = XmlDom.GetElementsByTagName("collection")
