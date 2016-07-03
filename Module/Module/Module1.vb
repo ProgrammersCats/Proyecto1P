@@ -16,7 +16,7 @@ Module Module1
         Dim pagos As New TipoPagos()
         repositorioProd.CargarDatos()
         repositorioProv.CargarDatos()
-        'pagos.CargarDatos()
+        pagos.CargarDatos()
         Dim usuario, contraseña As String
         Do While (True)
             Console.WriteLine("****************************   " + "INICIAR SESION" + "   ***************************")
@@ -37,7 +37,7 @@ Module Module1
                     Dim adm As New Admin(usuario, contraseña)
 
                     If (adm.ValidarDatos()) Then
-                        adm.AsignarRepositorios(repositorioProd, repositorioProv)
+                        adm.AsignarRepositorios(repositorioProd, repositorioProv, pagos)
                         Do While (True)
                             Console.WriteLine("================================ " + "ADMINISTRADOR" + " ================================")
                             Console.WriteLine("1.  Agregar Producto")
@@ -66,6 +66,7 @@ Module Module1
                                     repositorioProv.MostrarProvincias()
                                 Case 4
                                     Console.WriteLine(pagos.ToString)
+                                    adm.ModificarPagos()
                                 Case 5
                                     Exit Do
                                 Case Else

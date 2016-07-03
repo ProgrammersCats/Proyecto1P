@@ -20,6 +20,15 @@ Public Class Admin
             _usuario = value
         End Set
     End Property
+    Private _tipoPagos As TipoPagos
+    Public Property TipoPagos() As TipoPagos
+        Get
+            Return _tipoPagos
+        End Get
+        Set(ByVal value As TipoPagos)
+            _tipoPagos = value
+        End Set
+    End Property
     Private _contraseña As String
     Public Property Contraseña() As String
         Get
@@ -56,9 +65,16 @@ Public Class Admin
         End Set
     End Property
 
-    Public Sub AsignarRepositorios(repositorioProd As RepositorioProductos, repositorioProv As RepositorioProvincias)
+    Public Sub AsignarRepositorios(repositorioProd As RepositorioProductos, repositorioProv As RepositorioProvincias, tipoP As TipoPagos)
         Me.RepositorioProductos = repositorioProd
         Me.RepositorioProvincias = repositorioProv
+        Me.TipoPagos = tipoP
+    End Sub
+    Public Sub ModificarPagos()
+        Dim opcion As String
+        Console.WriteLine("Escoja la opcion (1-3): ")
+        opcion = Console.ReadLine()
+        Me.TipoPagos.ModificarPagos(opcion)
     End Sub
 
     Public Overrides Function ValidarDatos()
