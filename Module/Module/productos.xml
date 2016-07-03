@@ -1,10 +1,8 @@
 <collection>
   <Item>
-    <id_producto>
-    </id_producto>
-    <descripcion>
-    </descripcion>
-    <precio_fabrica>0</precio_fabrica>
-    <pvp>0</pvp>
+    <id_producto>001</id_producto>
+    <descripcion>Globo</descripcion>
+    <precio_fabrica>10</precio_fabrica>
+    <pvp>10</pvp>
   </Item>
 </collection>

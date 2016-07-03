@@ -19,34 +19,34 @@ Public Class RepositorioProductos
 
         Me.ArrayProductos.Add(pro)
 
-        Me.actualizarXml()
+        'Me.actualizarXml()
     End Sub
 
     Public Sub cargarDatos()
-        Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\productos.xml"
+        Dim path As String = "E:\Visual\Proyecto1P\Module\Module\productos.xml"
         Dim xmlDom As New XmlDocument()
         xmlDom.Load(path)
         Dim raiz As XmlNodeList = xmlDom.GetElementsByTagName("collection")
         For Each nodo As XmlNode In raiz
-            'For Each item As XmlNode In nodo.ChildNodes
-            Dim codigo, descripcion, precio_fab, pvp As String
-            For Each infoItem As XmlNode In nodo.ChildNodes
+            For Each item As XmlNode In nodo.ChildNodes
+                Dim codigo, descripcion, precio_fab, pvp As String
+                For Each infoItem As XmlNode In item.ChildNodes
 
-                Select Case infoItem.Name
-                    Case "id_producto"
-                        codigo = infoItem.InnerText
-                    Case "descripcion"
-                        descripcion = infoItem.InnerText
-                    Case "precio_fabrica"
-                        precio_fab = infoItem.InnerText
-                    Case "pvp"
-                        pvp = infoItem.InnerText
-                End Select
+                    Select Case infoItem.Name
+                        Case "id_producto"
+                            codigo = infoItem.InnerText
+                        Case "descripcion"
+                            descripcion = infoItem.InnerText
+                        Case "precio_fabrica"
+                            precio_fab = infoItem.InnerText
+                        Case "pvp"
+                            pvp = infoItem.InnerText
+                    End Select
 
+                Next
+                Dim prod As New Producto(codigo, descripcion, CDbl(pvp), CDbl(precio_fab))
+                Me.AgregarProducto(prod)
             Next
-            Dim prod As New Producto(codigo, descripcion, CDbl(pvp), CDbl(precio_fab))
-            Me.AgregarProducto(prod)
-            'Next
         Next
     End Sub
 

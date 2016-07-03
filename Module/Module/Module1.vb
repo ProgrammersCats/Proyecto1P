@@ -31,6 +31,7 @@ Module Module1
                     contraseña = Console.ReadLine()
                     Dim adm As New Admin(usuario, contraseña)
                     If (adm.ValidarDatos()) Then
+                        adm.AsignarRepositorio(repositorio)
                         Do While (True)
                             Console.WriteLine("==============" + vbTab + "ADMINISTRADOR" + vbTab + "==============")
                             Console.WriteLine("1. Agregar Producto")
@@ -45,8 +46,9 @@ Module Module1
                             Select Case op2
 
                                 Case 1
-                                    adm.AgregarProducto()
                                     repositorio.MostrarInventario()
+                                    'adm.AgregarProducto()
+                                    'repositorio.MostrarInventario()
                                 Case 2
 
                                 Case 3
