@@ -16,7 +16,7 @@ Public Class RepositorioProductos
     End Sub
 
     Public Sub cargarDatos()
-        Dim path As String = "E:\Visual\Proyecto1P\Module\Module\productos.xml"
+        Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\productos.xml"
         Dim xmlDom As New XmlDocument()
         xmlDom.Load(path)
         Dim raiz As XmlNodeList = xmlDom.GetElementsByTagName("collection")
