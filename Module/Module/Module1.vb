@@ -50,7 +50,8 @@ Module Module1
                                     adm.AgregarProducto()
                                     repositorio.MostrarInventario()
                                 Case 2
-
+                                    repositorio.MostrarInventario()
+                                    adm.EliminarProducto()
                                 Case 3
 
                                 Case 4

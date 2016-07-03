@@ -88,6 +88,14 @@ Public Class Admin
         End If
         Return False
     End Function
+
+    Public Sub EliminarProducto()
+        Dim cod As Short = 0
+        Console.WriteLine("Ingrese el codigo del producto a eliminar: ")
+        cod = Console.ReadLine()
+        Repositorio.EliminarProductoPorCodigo(cod)
+    End Sub
+
     Public Sub AgregarProducto()
         Dim codigo, descripcion, precioFab, pvp As String
 
@@ -102,7 +110,7 @@ Public Class Admin
         pvp = Console.ReadLine()
         Dim newProd As New Producto(codigo, descripcion, CDbl(pvp), CDbl(precioFab))
         Me.Repositorio.AgregarProducto(newProd)
-        'Me.Repositorio.actualizarXml()
+        Me.Repositorio.actualizarXml()
     End Sub
 
 End Class

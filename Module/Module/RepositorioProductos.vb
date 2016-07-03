@@ -17,7 +17,7 @@ Public Class RepositorioProductos
     Public Sub AgregarProducto(pro As Producto)
 
         Me.ArrayProductos.Add(pro)
-        'Me.actualizarXml()
+
     End Sub
 
     Public Sub cargarDatos()
@@ -64,7 +64,7 @@ Public Class RepositorioProductos
             collection.AppendChild(item)
         Next
 
-
+        Dim pathW As String = "E:\Visual\Proyecto1P\Module\Module\productosW.xml"
         Dim xmlFile As XmlTextWriter = New XmlTextWriter(path, Nothing)
         xmlFile.Formatting = Formatting.Indented
         nodoRaiz.WriteContentTo(xmlFile)
@@ -73,4 +73,13 @@ Public Class RepositorioProductos
 
     End Sub
 
+    Public Sub EliminarProductoPorCodigo(cod As Short)
+        Dim indice As Short = 0
+        For Each prod As Producto In ArrayProductos
+            If (prod.CodigoProducto = cod) Then
+                Me.ArrayProductos.RemoveAt(indice)
+            End If
+            indice = indice + 1
+        Next
+    End Sub
 End Class

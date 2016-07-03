@@ -28,4 +28,13 @@
             _iva = value
         End Set
     End Property
+
+    Public Sub New(nombre As String, capital As String, ivas As Double)
+        Me.NombreProvincia = nombre
+        Me.Capital = capital
+        Me.Iva = Iva
+    End Sub
+    Public Sub New()
+
+    End Sub
 End Class
