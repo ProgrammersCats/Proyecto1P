@@ -17,6 +17,7 @@ Module Module1
         repositorioProd.CargarDatos()
         repositorioProv.CargarDatos()
         'pagos.CargarDatos()
+        Dim usuario, contraseña As String
         Do While (True)
             Console.WriteLine("****************************   " + "INICIAR SESION" + "   ***************************")
             Console.WriteLine("1.  Administrador")
@@ -28,15 +29,12 @@ Module Module1
             Console.WriteLine("*******************************************************************************")
             Select Case op1
                 Case 1
-                    Dim usuario, contraseña As String
+
                     Console.WriteLine("USUARIO :")
                     usuario = Console.ReadLine()
                     Console.WriteLine("CONTRASEÑA :")
                     contraseña = Console.ReadLine()
                     Dim adm As New Admin(usuario, contraseña)
-                    Dim ven As New Vendedor()
-                    adm.Miau()
-                    ven.Miau()
 
                     If (adm.ValidarDatos()) Then
                         adm.AsignarRepositorios(repositorioProd, repositorioProv)
@@ -80,13 +78,13 @@ Module Module1
 
                 Case 2
                     Console.WriteLine("=============================== " + "VENDEDOR" + " ===============================")
-                    Dim usuario, contraseña As String
-                    Console.WriteLine("USUARIO :")
+
+                    Console.WriteLine("NOMBRE :")
                     usuario = Console.ReadLine()
                     Console.WriteLine("CONTRASEÑA :")
                     contraseña = Console.ReadLine()
-                    Dim adm As New Admin(usuario, contraseña)
-                    If (adm.ValidarDatos()) Then
+                    Dim vendedor As New Vendedor(usuario, contraseña)
+                    If (vendedor.ValidarDatos()) Then
                         Console.WriteLine(" /////  DATOS CLIENTE \\\\\")
                     End If
 

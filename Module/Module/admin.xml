@@ -20,6 +20,13 @@
 		<usuario>Chibi</usuario>
 		<contraseña>paola</contraseña>
 	</Admin>	
-	
+	<Vendedor>
+  		<usuario>Ricardo</usuario>
+  		<contraseña>pogo</contraseña>
+ 	</Vendedor>
+ 	<Vendedor>
+  		<usuario>Miguel</usuario>
+  		<contraseña>coleta</contraseña>
+ 	</Vendedor>
 	
 </collection>

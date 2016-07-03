@@ -61,34 +61,38 @@ Public Class Admin
         Me.RepositorioProvincias = repositorioProv
     End Sub
 
-    'Public Function ValidarDatos()
-    '    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\admin.xml"
-    '    Dim XmlDom As New XmlDocument()
-    '    XmlDom.Load(path)
-    '    Dim raiz As XmlNodeList = XmlDom.GetElementsByTagName("collection")
-    '    Dim cont As Short = 0
-    '    For Each nodo As XmlNode In raiz
-    '        For Each admin As XmlNode In nodo.ChildNodes
-    '            For Each datos As XmlNode In admin.ChildNodes
-    '                Select Case datos.Name
-    '                    Case "usuario"
-    '                        If (Me.Usuario.Contains(datos.InnerText)) Then
-    '                            cont = cont + 1
-    '                        End If
+    Public Overrides Function ValidarDatos()
+        Dim path As String = "E:\Visual\Proyecto1P\Module\Module\admin.xml"
+        Dim XmlDom As New XmlDocument()
+        XmlDom.Load(path)
+        Dim raiz As XmlNodeList = XmlDom.GetElementsByTagName("collection")
+        Dim cont As Short = 0
+        For Each nodo As XmlNode In raiz
+            For Each admin As XmlNode In nodo.ChildNodes
+                If (admin.Name.Contains("Admin")) Then
+                    For Each datos As XmlNode In admin.ChildNodes
+                        Select Case datos.Name
+                            Case "usuario"
+                                If (Me.Usuario.Contains(datos.InnerText)) Then
+                                    cont = cont + 1
+                                End If
 
-    '                    Case "contraseña"
-    '                        If (Me.Contraseña.Contains(datos.InnerText)) Then
-    '                            cont = cont + 1
-    '                        End If
-    '                End Select
-    '            Next
-    '        Next
-    '    Next
-    '    If (cont = 2) Then
-    '        Return True
-    '    End If
-    '    Return False
-    'End Function
+                            Case "contraseña"
+                                If (Me.Contraseña.Contains(datos.InnerText)) Then
+                                    cont = cont + 1
+                                End If
+                        End Select
+                    Next
+                End If
+            Next
+
+
+        Next
+        If (cont = 2) Then
+            Return True
+        End If
+        Return False
+    End Function
 
     Public Sub ModificarIva()
 
@@ -137,7 +141,5 @@ Public Class Admin
         Console.WriteLine("********** GUARDADO EXITOSO **********")
     End Sub
 
-    Public Overrides Sub ValidarDatos()
-        Console.WriteLine("Hola")
-    End Sub
+
 End Class

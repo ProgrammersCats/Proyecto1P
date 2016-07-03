@@ -1,4 +1,6 @@
-﻿Public Class Persona
+﻿Imports System.Xml
+
+Public Class Persona
     Private _nombre As String
     Public Property Nombre() As String
         Get
@@ -47,9 +49,9 @@
         Me.Direccion = direccion
     End Sub
 
-    Public Overridable Sub ValidarDatos()
-
-    End Sub
+    Public Overridable Function ValidarDatos()
+        Return False
+    End Function
 
 
 End Class
