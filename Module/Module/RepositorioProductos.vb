@@ -21,8 +21,6 @@ Public Class RepositorioProductos
     End Sub
 
     Public Sub CargarDatos()
-        Dim path As String = "E:\Visual\Proyecto1P\Module\Module\productos.xml"
-        Dim xmlDom As New XmlDocument()
         xmlDom.Load(path)
         Dim raiz As XmlNodeList = xmlDom.GetElementsByTagName("collection")
         For Each nodo As XmlNode In raiz
@@ -51,7 +49,7 @@ Public Class RepositorioProductos
     Public Sub MostrarInventario()
         Console.WriteLine("************************** INVENTARIO DE PRODUCTOS ****************************")
         Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-        Console.WriteLine("| Id Producto" + vbTab + "|" + vbTab + "Descripcion" + vbTab + "|" + "    Precio Fabrica" + vbTab + "|" + vbTab + "PVP   |")
+        Console.WriteLine("| Id Producto" + vbTab + "| " + " Costo  |   Precio   |" + vbTab + "Descripcion")
         Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
         For Each producto As Producto In Me.ArrayProductos
             Console.WriteLine(producto.ToString())
@@ -72,7 +70,7 @@ Public Class RepositorioProductos
         xmlFile.Formatting = Formatting.Indented
         nodoRaiz.WriteContentTo(xmlFile)
         xmlFile.Close()
-        Console.WriteLine("****************** GUARDADO EXITOSO ******************")
+
 
     End Sub
 

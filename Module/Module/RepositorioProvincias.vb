@@ -49,7 +49,7 @@ Public Class RepositorioProvincias
     Public Sub MostrarProvincias()
         Console.WriteLine("************************** LISTA DE PROVINCIAS ****************************")
         Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
-        Console.WriteLine("|" + "ID  |" + vbTab + " IVA % " + vbTab + vbTab + " | " + vbTab + vbTab + "   NOMBRE   " + vbTab + vbTab)
+        Console.WriteLine("|" + "ID  |" + vbTab + " IVA % " + vbTab + " |  NOMBRE   ")
         Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
         For Each provincia As Provincia In Me.ArrayProvincias
             Console.WriteLine(provincia.ToString())
@@ -71,7 +71,7 @@ Public Class RepositorioProvincias
         xmlFile.Formatting = Formatting.Indented
         nodoRaiz.WriteContentTo(xmlFile)
         xmlFile.Close()
-        Console.WriteLine(" GUARDADO EXITOSO ")
+
 
     End Sub
 

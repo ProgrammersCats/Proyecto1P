@@ -8,9 +8,7 @@ Module Module1
         '    Console.WriteLine("Te amo muuuuuuucho mas <3")
         'Next
 
-        'Dim fac As New Factura("222222")
-        'fac.MostrarFactura()
-        'Dim flag1 As String = 0
+
         Dim repositorioProd As New RepositorioProductos()
         Dim repositorioProv As New RepositorioProvincias()
         Dim pagos As New TipoPagos()
@@ -23,16 +21,16 @@ Module Module1
             Console.WriteLine("1.  Administrador")
             Console.WriteLine("2.  Vendedor")
             Console.WriteLine("3.  Salir")
-            Console.WriteLine("Elija una opcion(1-3): ")
+            Console.Write("Elija una opcion(1-3): ")
             Dim op1 As Short
             op1 = Console.ReadLine()
             Console.WriteLine("*******************************************************************************")
             Select Case op1
                 Case 1
 
-                    Console.WriteLine("USUARIO :")
+                    Console.Write("USUARIO :")
                     usuario = Console.ReadLine()
-                    Console.WriteLine("CONTRASEÑA :")
+                    Console.Write("CONTRASEÑA :")
                     contraseña = Console.ReadLine()
                     Dim adm As New Admin(usuario, contraseña)
 
@@ -42,10 +40,10 @@ Module Module1
                             Console.WriteLine("================================ " + "ADMINISTRADOR" + " ================================")
                             Console.WriteLine("1.  Agregar Producto")
                             Console.WriteLine("2.  Eliminar Producto")
-                            Console.WriteLine("3.  Modificar IVA")
+                            Console.WriteLine("3.  Modificar IVA de provincias")
                             Console.WriteLine("4.  Modificar Tipos de Pago")
                             Console.WriteLine("5.  Cerrar Sesion")
-                            Console.WriteLine("Elija una opcion(1-5): ")
+                            Console.Write("Elija una opcion(1-5): ")
                             Dim op2 As Short
                             op2 = Console.ReadLine()
                             Dim pathProd As String = ("E:\Visual\Proyecto1P\Module\Module\productos.xml")
@@ -78,30 +76,54 @@ Module Module1
                     End If
 
                 Case 2
-                    Console.WriteLine("=============================== " + "VENDEDOR" + " ===============================")
-                    Do While (True)
-                        Console.WriteLine("NOMBRE :")
-                        usuario = Console.ReadLine()
-                        Console.WriteLine("CONTRASEÑA :")
-                        contraseña = Console.ReadLine()
-                        Dim vendedor As New Vendedor(usuario, contraseña)
-                        If (vendedor.ValidarDatos()) Then
-                            Dim cliente As New Cliente()
-                            cliente.PedirDatosCliente()
-                            Dim fact As New Factura()
-                            fact.Cliente = cliente
-                            fact.Vendedor = vendedor
-                            Console.WriteLine("Funco")
+                    Console.Write("NOMBRE :")
+                    usuario = Console.ReadLine()
+                    Console.Write("CONTRASEÑA :")
+                    contraseña = Console.ReadLine()
+                    Dim vendedor As New Vendedor(usuario, contraseña)
+                    If (vendedor.ValidarDatos()) Then
+                        Dim cliente1 As Cliente
+                        Dim fact As Factura
+                        Dim flag = 0
+                        Do While (flag = 0)
+                            Console.WriteLine("=============================== " + "VENDEDOR" + " ===============================")
+                            Console.WriteLine("1.  Pedir datos Cliente")
+                            Console.WriteLine("2.  Crear Factura")
+                            Console.WriteLine("3.  Buscar producto por nombre")
+                            Console.WriteLine("4.  Salir")
+                            Console.Write("Elija una opcion(1-4): ")
+                            Dim op As Short
+                            op = Console.ReadLine()
+                            Select Case op
+                                Case 1
 
+                                    Console.WriteLine(" /////////// DATOS CLIENTE \\\\\\\\\\\")
 
-                        Else
-                            Console.WriteLine(" USUARIO O CONTRASEÑA INCORRECTA ")
-                        End If
-                    Loop
+                                    cliente1 = New Cliente()
+                                    cliente1.PedirDatosCliente()
+                                    Console.WriteLine(cliente1.ToString())
+
+                                Case 2
+                                    fact = New Factura()
+
+                                    fact.Cliente = cliente1
+                                    fact.Vendedor = vendedor
+
+                                    Console.WriteLine("Funco")
+                                Case 3
+                                Case 4
+                                    Exit Select
+                                Case Else
+                                    Console.WriteLine(" OPCION INCORRECTA !! ")
+                            End Select
+                        Loop
+                    Else
+                        Console.WriteLine(" USUARIO O CONTRASEÑA INCORRECTA ")
+                    End If
+
 
 
                 Case 3
-                    'flag1 = flag1 + 1
                     End
                 Case Else
                     Console.WriteLine(" OPCION INCORRECTA !! ")

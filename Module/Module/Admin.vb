@@ -42,8 +42,8 @@ Public Class Admin
         Me.Usuario = usuario
         Me.Contraseña = contraseña
     End Sub
-    Public Sub New(nombre As String, apellido As String, direccion As String, idAdministrador As Integer)
-        MyBase.New(nombre, apellido, direccion)
+    Public Sub New(nombre As String, apellido As String, telefono As String, direccion As String, idAdministrador As Integer)
+        MyBase.New(nombre, apellido, telefono, direccion)
         Me.IdAdmin = idAdministrador
     End Sub
     Private _repositorio As RepositorioProductos
@@ -122,6 +122,7 @@ Public Class Admin
                 Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva = Console.ReadLine
                 Console.WriteLine("El IVA fue modificado a: " & Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva & "%")
                 Me.RepositorioProvincias.ActualizarXml()
+                Console.WriteLine("****************** IVA MODIFICADO ******************")
                 Exit While
             Else
                 Console.WriteLine(" OPCION INCORRECTA !!")
@@ -140,21 +141,34 @@ Public Class Admin
     End Sub
 
     Public Sub AgregarProducto()
-        Dim codigo, descripcion, precioFab, pvp As String
+        Dim codigo, descripcion, costo, precio As String
 
         Console.WriteLine(" /////////// AGREGAR PRODUCTO \\\\\\\\\\\")
-        Console.WriteLine("Codigo: ")
+        Console.WriteLine("- Si desea cancelar y salir digite 0 -")
+        Console.Write("Codigo: ")
         codigo = Console.ReadLine()
-        Console.WriteLine("Descripcion: ")
+        If (codigo = "0") Then
+            Exit Sub
+        End If
+        Console.Write("Descripcion: ")
         descripcion = Console.ReadLine()
-        Console.WriteLine("Precio de Fabrica: ")
-        precioFab = Console.ReadLine()
-        Console.WriteLine("PVP: ")
-        pvp = Console.ReadLine()
-        Dim newProd As New Producto(codigo, descripcion, CDbl(pvp), CDbl(precioFab))
+        If (descripcion = "0") Then
+            Exit Sub
+        End If
+        Console.Write("Precio de Fabrica: ")
+        costo = Console.ReadLine()
+        If (costo = "0") Then
+            Exit Sub
+        End If
+        Console.Write("PVP: ")
+        precio = Console.ReadLine()
+        If (precio = "0") Then
+            Exit Sub
+        End If
+        Dim newProd As New Producto(codigo, descripcion, CDbl(precio), CDbl(costo))
         Me.RepositorioProductos.AgregarProducto(newProd)
         Me.RepositorioProductos.ActualizarXml()
-        Console.WriteLine("********** GUARDADO EXITOSO **********")
+        Console.WriteLine("****************** PRODUCTO GUARDADO ******************")
     End Sub
 
 

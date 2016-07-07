@@ -43,9 +43,10 @@ Public Class Persona
 
     End Sub
 
-    Public Sub New(nombre As String, apellido As String, direccion As String)
+    Public Sub New(nombre As String, apellido As String, telefono As String, direccion As String)
         Me.Nombre = nombre
         Me.Apellido = apellido
+        Me.Telefono = telefono
         Me.Direccion = direccion
     End Sub
 

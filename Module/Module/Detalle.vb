@@ -31,7 +31,7 @@
     Private _totalDetalle As Double
     Public ReadOnly Property TotalDetalle() As Double
         Get
-            Return Me.Cantidad * Me.Item.Pvp
+            Return Me.Cantidad * Me.Item.Precio
         End Get
 
     End Property
@@ -44,6 +44,6 @@
 
     End Sub
     Public Overrides Function ToString() As String
-        Return Me.Codigo + vbTab + vbTab + Me.Item.NombreProducto & vbTab + vbTab & Me.Cantidad & vbTab + vbTab & Me.Item.Pvp & vbTab + vbTab & Me.TotalDetalle
+        Return Me.Codigo + vbTab + vbTab + Me.Item.NombreProducto & vbTab + vbTab & Me.Cantidad & vbTab + vbTab & Me.Item.Precio & vbTab + vbTab & Me.TotalDetalle
     End Function
 End Class
