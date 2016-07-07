@@ -35,15 +35,12 @@
         End Get
 
     End Property
-
-    Sub New(codigo As String)
-        Dim pro As New Producto("00", "Gato", 10.0, 12.0)
-        Me.Item = pro
-        Me.Codigo = codigo
-        Me.Cantidad = 5
-
+    Sub New(item As Producto, cant As Integer)
+        Me.Item = item
+        Me.Cantidad = cant
     End Sub
+
     Public Overrides Function ToString() As String
-        Return Me.Codigo + vbTab + vbTab + Me.Item.NombreProducto & vbTab + vbTab & Me.Cantidad & vbTab + vbTab & Me.Item.Precio & vbTab + vbTab & Me.TotalDetalle
+        Return Me.Item.CodigoProducto + vbTab + vbTab + Me.Item.NombreProducto & vbTab + vbTab & Me.Cantidad & vbTab + vbTab & Me.Item.Precio & vbTab + vbTab & Me.TotalDetalle
     End Function
 End Class

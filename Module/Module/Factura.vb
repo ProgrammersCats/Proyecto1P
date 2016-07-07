@@ -1,4 +1,6 @@
-﻿Public Class Factura
+﻿Imports [Module]
+
+Public Class Factura
     Private _numeroFactura As String
     Public Property NumeroFactura As String
         Get
@@ -57,55 +59,89 @@
     End Property
 
     Private _subtotal As Double
-    Public Property Subtotal() As Double
+    Public ReadOnly Property Subtotal() As Double
         Get
-            Return _subtotal
+            Dim subT As Double
+            For Each det As Detalle In Me.Detalles
+                subT += det.TotalDetalle
+            Next
+            Return subT
         End Get
-        Set(ByVal value As Double)
-            _subtotal = value
-        End Set
+
     End Property
 
     Private _total As Double
-    Public Property Total() As Double
+    Public ReadOnly Property Total() As Double
         Get
-            Return _total
+            Return Me.IVA + Me.Subtotal
+        End Get
+
+    End Property
+    Private _iva As Double
+    Public ReadOnly Property IVA() As Double
+        Get
+            Return (Me.LugarEmision.Iva * Me.Subtotal) / 100
+        End Get
+
+    End Property
+    Private _devolucion As Double
+    Public Property Devolucion() As Double
+        Get
+            Return (_devolucion * Me.Total) / 100
         End Get
         Set(ByVal value As Double)
-            _total = value
+            _devolucion = value
         End Set
+    End Property
+    Private _totalPagar As Double
+    Public ReadOnly Property TotalPagar() As Double
+        Get
+            Return Me.Total - Me.Devolucion
+        End Get
+
     End Property
 
     Public Sub New(numero As String)
         Me.NumeroFactura = numero
     End Sub
     Public Sub New()
-
+        Me.Fecha = Date.Now
+        Me.NumeroFactura = 1
     End Sub
     Public Sub MostrarFactura()
-        Dim cli As New Cliente("Paul", "Valle", "Norte", "001", "0985455")
-        Dim det As New Detalle("001554")
-        Dim lugar As New Provincia()
-        Me.LugarEmision = lugar
-        Me.Detalles.Add(det)
-        Cliente = cli
+
         Console.WriteLine("--------------------------------------------------------------------------------" + vbNewLine +
                             "Id Factura: " + vbTab + Me.NumeroFactura + vbTab + vbTab + vbTab + "Fecha: " + vbTab + Me.Fecha + vbNewLine +
                             "Nombre: " + vbTab + Cliente.Nombre + vbTab + vbTab + vbTab + "RUC: " + vbTab + Cliente.Ruc + vbNewLine +
-                            "Direccion: " + vbTab + Cliente.Direccion + vbTab + vbTab + vbTab + "Telefono: " + vbTab + Cliente.Telefono + vbNewLine +
+                            "Dirección: " + vbTab + Cliente.Direccion + vbTab + vbTab + vbTab + "Teléfono: " + vbTab + Cliente.Telefono + vbNewLine +
                           "--------------------------------------------------------------------------------" + vbNewLine +
                           "                                    DETALLE                                     " + vbNewLine +
                           "--------------------------------------------------------------------------------" + vbNewLine +
-                            "Codigo" + vbTab + vbTab + "Descripcion" + vbTab + "Cantidad" + vbTab + "Precio" + vbTab + vbTab + "Total" + vbNewLine +
+                            "Id" + vbTab + vbTab + "Descripción" + vbTab + "Cantidad" + vbTab + "Precio" + vbTab + vbTab + "Total" + vbNewLine +
                           "================================================================================")
+        Me.MostrarDetalles()
+
+    End Sub
+
+    Public Sub AgregarProducto(prod As Producto)
+
+        Dim cantidad As String
+        Console.Write("Cantidad: ")
+        cantidad = Console.ReadLine()
+
+        Dim detalle As New Detalle(prod, CInt(cantidad))
+        Me.Detalles.Add(detalle)
+
+        'Console.Write("Numero incorrecto")
+
+    End Sub
+    Public Sub MostrarDetalles()
         For Each deta As Detalle In Me.Detalles
             Console.WriteLine(deta.ToString)
         Next
         Console.WriteLine("--------------------------------------------------------------------------------" + vbNewLine +
-                            "Subtotal: " & Me.Subtotal & vbTab + vbTab + vbTab + "IVA: " + vbTab & Me.LugarEmision.Iva & vbTab + vbTab + vbTab + "Total: " & Me.Total & vbNewLine +
+                            "Subtotal: " & vbTab & Me.Subtotal & vbNewLine + "IVA: " + vbTab + vbTab & Me.IVA & vbNewLine + "Total: " + vbTab + vbTab & Me.Total & vbNewLine +
+                            "Devolución: " + vbTab & Me.Devolucion & vbNewLine + "Total a pagar: " + vbTab & Me.TotalPagar & vbNewLine +
                           "--------------------------------------------------------------------------------")
-
     End Sub
-
-
 End Class

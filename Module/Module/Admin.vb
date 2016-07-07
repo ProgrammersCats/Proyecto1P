@@ -72,7 +72,7 @@ Public Class Admin
     End Sub
     Public Sub ModificarPagos()
         Dim opcion As String
-        Console.WriteLine("Escoja la opcion (1-3): ")
+        Console.WriteLine("Escoja la opción (1-3): ")
         opcion = Console.ReadLine()
         Me.TipoPagos.ModificarPagos(opcion)
     End Sub
@@ -113,11 +113,16 @@ Public Class Admin
     Public Sub ModificarIva()
 
         While (True)
-            Console.WriteLine("Elija una opcion (1-24): ")
+            Console.WriteLine("Elija una opción (1-24): ")
+            Console.WriteLine("- Si desea cancelar y salir digite 0 -")
             Dim op3 As Short
             op3 = CShort(Console.ReadLine)
+            If op3 = "0" Then
+                Console.WriteLine("- No se modificó el IVA de la provincia -")
+                Exit Sub
+            End If
             If op3 > 0 And op3 < 25 Then
-                Console.WriteLine("Usted eligio: " + Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).NombreProvincia + " con iva: " & Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva & "%")
+                Console.WriteLine("Usted eligió: " + Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).NombreProvincia + " con IVA: " & Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva & "%")
                 Console.WriteLine("Ingrese el nuevo valor del IVA: ")
                 Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva = Console.ReadLine
                 Console.WriteLine("El IVA fue modificado a: " & Me.RepositorioProvincias.ArrayProvincias.Item(op3 - 1).Iva & "%")
@@ -125,7 +130,7 @@ Public Class Admin
                 Console.WriteLine("****************** IVA MODIFICADO ******************")
                 Exit While
             Else
-                Console.WriteLine(" OPCION INCORRECTA !!")
+                Console.WriteLine(" OPCIÓN INCORRECTA !!")
             End If
         End While
 
@@ -133,8 +138,13 @@ Public Class Admin
 
     Public Sub EliminarProducto()
         Dim cod As Short = 0
-        Console.WriteLine("Ingrese el codigo del producto a eliminar: ")
+        Console.WriteLine("- Si desea cancelar y salir digite 0 -")
+        Console.WriteLine("Ingrese el código del producto a eliminar: ")
         cod = Console.ReadLine()
+        If (cod = "0") Then
+            Console.WriteLine("- No se eliminó ningun producto -")
+            Exit Sub
+        End If
         RepositorioProductos.EliminarProductoPorCodigo(cod)
         Me.RepositorioProductos.ActualizarXml()
         Console.WriteLine("********** PRODUCTO ELIMINADO **********")
@@ -145,22 +155,22 @@ Public Class Admin
 
         Console.WriteLine(" /////////// AGREGAR PRODUCTO \\\\\\\\\\\")
         Console.WriteLine("- Si desea cancelar y salir digite 0 -")
-        Console.Write("Codigo: ")
+        Console.Write("Código: ")
         codigo = Console.ReadLine()
         If (codigo = "0") Then
             Exit Sub
         End If
-        Console.Write("Descripcion: ")
+        Console.Write("Descripción: ")
         descripcion = Console.ReadLine()
         If (descripcion = "0") Then
             Exit Sub
         End If
-        Console.Write("Precio de Fabrica: ")
+        Console.Write("Costo: ")
         costo = Console.ReadLine()
         If (costo = "0") Then
             Exit Sub
         End If
-        Console.Write("PVP: ")
+        Console.Write("Precio: ")
         precio = Console.ReadLine()
         If (precio = "0") Then
             Exit Sub

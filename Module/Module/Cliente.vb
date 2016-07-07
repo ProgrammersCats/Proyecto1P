@@ -31,6 +31,7 @@
     End Sub
 
     Public Sub PedirDatosCliente()
+        Console.WriteLine("- Si desea salir digite 0 -")
         Dim nom, ape, dir, tel, ruc As String
         Console.Write("Ingrese nombre:")
         nom = Console.ReadLine()
@@ -42,7 +43,7 @@
         If (ape = "0") Then
             Exit Sub
         End If
-        Console.Write("Ingrese direccion:")
+        Console.Write("Ingrese dirección:")
         dir = Console.ReadLine()
         If (dir = "0") Then
             Exit Sub
@@ -63,12 +64,12 @@
         Me.Ruc = ruc
         Me.Telefono = tel
         Me.Direccion = dir
-
+        Console.WriteLine("* El cliente " + Me.Nombre + " ha sido agregado con éxito *")
     End Sub
 
     Public Overrides Function ToString() As String
         Return "Nombre: " + Me.Nombre + " " + Me.Apellido + vbTab + "RUC: " + Me.Ruc + vbNewLine +
-                "Direccion: " + Me.Direccion + vbTab + "Telefono: " + Me.Telefono
+                "Dirección: " + Me.Direccion + vbTab + "Teléfono: " + Me.Telefono
 
     End Function
 End Class

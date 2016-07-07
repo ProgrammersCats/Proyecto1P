@@ -25,7 +25,7 @@ Public Class RepositorioProductos
         Dim raiz As XmlNodeList = xmlDom.GetElementsByTagName("collection")
         For Each nodo As XmlNode In raiz
             For Each item As XmlNode In nodo.ChildNodes
-                Dim codigo, descripcion, precio_fab, pvp As String
+                Dim codigo, descripcion, costo, precio As String
                 For Each infoItem As XmlNode In item.ChildNodes
 
                     Select Case infoItem.Name
@@ -33,14 +33,14 @@ Public Class RepositorioProductos
                             codigo = infoItem.InnerText
                         Case "descripcion"
                             descripcion = infoItem.InnerText
-                        Case "precio_fabrica"
-                            precio_fab = infoItem.InnerText
-                        Case "pvp"
-                            pvp = infoItem.InnerText
+                        Case "costo"
+                            costo = infoItem.InnerText
+                        Case "precio"
+                            precio = infoItem.InnerText
                     End Select
 
                 Next
-                Dim prod As New Producto(codigo, descripcion, CDbl(pvp), CDbl(precio_fab))
+                Dim prod As New Producto(codigo, descripcion, CDbl(precio), CDbl(costo))
                 Me.AgregarProducto(prod)
             Next
         Next
@@ -49,7 +49,7 @@ Public Class RepositorioProductos
     Public Sub MostrarInventario()
         Console.WriteLine("************************** INVENTARIO DE PRODUCTOS ****************************")
         Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-        Console.WriteLine("| Id Producto" + vbTab + "| " + " Costo  |   Precio   |" + vbTab + "Descripcion")
+        Console.WriteLine("| Id Producto" + vbTab + "| " + " Costo  |   Precio   |" + vbTab + "Descripción")
         Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
         For Each producto As Producto In Me.ArrayProductos
             Console.WriteLine(producto.ToString())
@@ -84,4 +84,17 @@ Public Class RepositorioProductos
             indice = indice + 1
         Next
     End Sub
+
+    Function BuscarPorCodigo(cod As String)
+        For Each prod As Producto In ArrayProductos
+            If (prod.CodigoProducto = cod) Then
+                Return prod
+                Exit For
+
+            End If
+        Next
+        Return Nothing
+    End Function
+
+
 End Class

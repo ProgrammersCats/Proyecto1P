@@ -17,12 +17,13 @@ Module Module1
         pagos.CargarDatos()
         Dim usuario, contraseña As String
         Do While (True)
-            Console.WriteLine("****************************   " + "INICIAR SESION" + "   ***************************")
+
+            Console.WriteLine("****************************   " + "INICIAR SESIÓN" + "   ***************************")
             Console.WriteLine("1.  Administrador")
             Console.WriteLine("2.  Vendedor")
             Console.WriteLine("3.  Salir")
             Console.Write("Elija una opcion(1-3): ")
-            Dim op1 As Short
+            Dim op1 As String
             op1 = Console.ReadLine()
             Console.WriteLine("*******************************************************************************")
             Select Case op1
@@ -37,42 +38,49 @@ Module Module1
                     If (adm.ValidarDatos()) Then
                         adm.AsignarRepositorios(repositorioProd, repositorioProv, pagos)
                         Do While (True)
+
                             Console.WriteLine("================================ " + "ADMINISTRADOR" + " ================================")
                             Console.WriteLine("1.  Agregar Producto")
                             Console.WriteLine("2.  Eliminar Producto")
                             Console.WriteLine("3.  Modificar IVA de provincias")
                             Console.WriteLine("4.  Modificar Tipos de Pago")
-                            Console.WriteLine("5.  Cerrar Sesion")
-                            Console.Write("Elija una opcion(1-5): ")
+                            Console.WriteLine("5.  Cerrar Sesión")
+                            Console.Write("Elija una opción(1-5): ")
                             Dim op2 As Short
                             op2 = Console.ReadLine()
-                            Dim pathProd As String = ("E:\Visual\Proyecto1P\Module\Module\productos.xml")
-                            Dim XmlDom As New XmlDocument()
+                            'Dim pathProd As String = ("E:\Visual\Proyecto1P\Module\Module\productos.xml")
+                            'Dim XmlDom As New XmlDocument()
                             Select Case op2
 
                                 Case 1
                                     repositorioProd.MostrarInventario()
                                     adm.AgregarProducto()
                                     repositorioProd.MostrarInventario()
+                                    Salir()
                                 Case 2
                                     repositorioProd.MostrarInventario()
                                     adm.EliminarProducto()
                                     repositorioProd.MostrarInventario()
+                                    Salir()
                                 Case 3
                                     repositorioProv.MostrarProvincias()
                                     adm.ModificarIva()
                                     repositorioProv.MostrarProvincias()
+                                    Salir()
                                 Case 4
                                     Console.WriteLine(pagos.ToString)
                                     adm.ModificarPagos()
+                                    Salir()
                                 Case 5
                                     Exit Do
                                 Case Else
-                                    Console.WriteLine(" OPCION INCORRECTA !! ")
+                                    Console.WriteLine("* OPCIÓN INCORRECTA !! *")
+                                    Salir()
                             End Select
                         Loop
                     Else
-                        Console.WriteLine(" USUARIO O CONTRASEÑA INCORRECTA !!")
+                        Console.WriteLine("* USUARIO O CONTRASEÑA INCORRECTA *")
+                        Salir()
                     End If
 
                 Case 2
@@ -86,13 +94,14 @@ Module Module1
                         Dim fact As Factura
                         Dim flag = 0
                         Do While (flag = 0)
-                            Console.WriteLine("=============================== " + "VENDEDOR" + " ===============================")
-                            Console.WriteLine("1.  Pedir datos Cliente")
+
+                            Console.WriteLine("============================ " + "VENDEDOR" + " ============================")
+                            Console.WriteLine("1.  Pedir datos del cliente")
                             Console.WriteLine("2.  Crear Factura")
                             Console.WriteLine("3.  Buscar producto por nombre")
                             Console.WriteLine("4.  Salir")
-                            Console.Write("Elija una opcion(1-4): ")
-                            Dim op As Short
+                            Console.Write("Elija una opción(1-4): ")
+                            Dim op As String
                             op = Console.ReadLine()
                             Select Case op
                                 Case 1
@@ -101,24 +110,50 @@ Module Module1
 
                                     cliente1 = New Cliente()
                                     cliente1.PedirDatosCliente()
-                                    Console.WriteLine(cliente1.ToString())
-
+                                    Salir()
                                 Case 2
+                                    Console.WriteLine(" /////////// FACTURACIÓN \\\\\\\\\\\")
                                     fact = New Factura()
+                                    If cliente1 Is Nothing Then
+                                        Console.WriteLine("** Primero ingrese los datos del cliente **")
+                                        Salir()
+                                    Else
+                                        'Console.WriteLine("Provincia")
+                                        fact.Cliente = cliente1
+                                        fact.Vendedor = vendedor
+                                        fact.LugarEmision = repositorioProv.ArrayProvincias.Item(0)
+                                        Dim cod As String
+                                        Console.Write("Ingrese código de producto: ")
+                                        cod = Console.ReadLine()
 
-                                    fact.Cliente = cliente1
-                                    fact.Vendedor = vendedor
+                                        If (repositorioProd.BuscarPorCodigo(cod) Is Nothing) Then
+                                            Console.WriteLine("* No existe un producto con ese código *")
+                                            Salir()
+                                        Else
+                                            Dim prod As Producto
+                                            prod = repositorioProd.BuscarPorCodigo(cod)
+                                            fact.AgregarProducto(prod)
+                                            fact.MostrarFactura()
+                                            Salir()
 
-                                    Console.WriteLine("Funco")
+                                        End If
+                                    End If
                                 Case 3
+                                        Salir()
                                 Case 4
+                                    flag = 1
+                                    Console.Clear()
                                     Exit Select
+
                                 Case Else
-                                    Console.WriteLine(" OPCION INCORRECTA !! ")
+                                    Console.WriteLine("* OPCIÓN INCORRECTA !! *")
+                                    Salir()
                             End Select
                         Loop
                     Else
-                        Console.WriteLine(" USUARIO O CONTRASEÑA INCORRECTA ")
+
+                        Console.WriteLine("* USUARIO O CONTRASEÑA INCORRECTA *")
+                        Salir()
                     End If
 
 
@@ -126,7 +161,8 @@ Module Module1
                 Case 3
                     End
                 Case Else
-                    Console.WriteLine(" OPCION INCORRECTA !! ")
+                    Console.WriteLine(" * OPCIÓN INCORRECTA !! *")
+                    Salir()
 
             End Select
         Loop
@@ -136,5 +172,9 @@ Module Module1
         Console.ReadLine()
         Console.WriteLine("miau skynet")
     End Sub
-
+    Sub Salir()
+        Console.WriteLine("Presione Enter para continuar....")
+        Console.ReadLine()
+        Console.Clear()
+    End Sub
 End Module

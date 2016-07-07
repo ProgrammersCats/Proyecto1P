@@ -2,25 +2,37 @@
   <Item>
     <id_producto>001</id_producto>
     <descripcion>Globo</descripcion>
-    <precio_fabrica>10</precio_fabrica>
-    <pvp>10</pvp>
+    <costo>10</costo>
+    <precio>10</precio>
   </Item>
   <Item>
     <id_producto>002</id_producto>
     <descripcion>Maleta</descripcion>
-    <precio_fabrica>15</precio_fabrica>
-    <pvp>20</pvp>
+    <costo>15</costo>
+    <precio>20</precio>
   </Item>
   <Item>
     <id_producto>003</id_producto>
     <descripcion>Gatito</descripcion>
-    <precio_fabrica>10</precio_fabrica>
-    <pvp>11</pvp>
+    <costo>10</costo>
+    <precio>11</precio>
   </Item>
   <Item>
     <id_producto>004</id_producto>
     <descripcion>Cartuchera</descripcion>
-    <precio_fabrica>10</precio_fabrica>
-    <pvp>14</pvp>
+    <costo>10</costo>
+    <precio>14</precio>
+  </Item>
+  <Item>
+    <id_producto>005</id_producto>
+    <descripcion>Bolso</descripcion>
+    <costo>10</costo>
+    <precio>12</precio>
+  </Item>
+  <Item>
+    <id_producto>006</id_producto>
+    <descripcion>Lapiz</descripcion>
+    <costo>50</costo>
+    <precio>100</precio>
   </Item>
 </collection>
