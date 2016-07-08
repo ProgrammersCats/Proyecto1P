@@ -148,10 +148,9 @@ Module Module1
                                                 flagItems = False
                                                 Console.Clear()
                                                 Salir()
-
                                             End If
-
                                         Loop
+                                        Console.WriteLine("Salio del do while")
                                     End If
                                 Case 3
                                     repositorioProd.BucarPorNombre()
