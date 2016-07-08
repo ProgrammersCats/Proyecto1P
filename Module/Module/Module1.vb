@@ -17,6 +17,7 @@ Module Module1
         repositorioProv.CargarDatos()
         pagos.CargarDatos()
         Dim usuario, contraseña As String
+        Dim contadorFactura As Integer
         Do While (True)
 
             Console.WriteLine("****************************   " + "INICIAR SESIÓN" + "   ***************************")
@@ -119,7 +120,18 @@ Module Module1
                                         Console.WriteLine("** Primero ingrese los datos del cliente **")
                                         Salir()
                                     Else
-                                        'Console.WriteLine("Provincia")
+                                        Dim flagProv As Boolean = True
+                                        Do While (flagProv)
+                                            Dim provincia As String
+                                            Console.Write("Ingrese el lugar de emisión (Provincia): ")
+                                            provincia = Console.ReadLine()
+                                            If (repositorioProv.ValidarProvincia(provincia) Is Nothing) Then
+                                                Console.WriteLine("* No existe esa provincia")
+                                            Else
+                                                fact.LugarEmision = repositorioProv.ValidarProvincia(provincia)
+                                                flagProv = False
+                                            End If
+                                        Loop
                                         fact.Cliente = cliente1
                                         fact.Vendedor = vendedor
                                         fact.LugarEmision = repositorioProv.ArrayProvincias.Item(0)
@@ -150,23 +162,28 @@ Module Module1
                                                 'Salir()
                                             End If
                                         Loop
-                                        Dim guardar As Integer
-                                        Console.WriteLine("¿Desea guardar la factura?")
-                                        Console.WriteLine("1. Si")
-                                        Console.WriteLine("0. No")
-                                        Console.Write("Eliga una opción: ")
-                                        guardar = Console.ReadLine()
-                                        Select Case guardar
-                                            Case 1
-                                                repositorioFact.AgregarFactura(fact)
-                                                repositorioFact.ActualizarXml()
-                                            Case 0
-                                                Console.WriteLine("No se guardo la factura")
-                                            Case Else
-                                                Console.WriteLine("Opción Incorrecta")
-
-                                        End Select
-
+                                        Dim flagGuardar As Boolean = True
+                                        Do While (flagGuardar)
+                                            Dim guardar As Integer
+                                            Console.WriteLine("¿Desea guardar la factura?")
+                                            Console.WriteLine("1. Si")
+                                            Console.WriteLine("0. No")
+                                            Console.Write("Eliga una opción: ")
+                                            guardar = Console.ReadLine()
+                                            Select Case guardar
+                                                Case 1
+                                                    fact.NumeroFactura = contadorFactura
+                                                    repositorioFact.AgregarFactura(fact)
+                                                    repositorioFact.ActualizarXml()
+                                                    flagGuardar = False
+                                                    contadorFactura += 1
+                                                Case 0
+                                                    Console.WriteLine("No se guardo la factura")
+                                                    flagGuardar = False
+                                                Case Else
+                                                    Console.WriteLine("Opción Incorrecta")
+                                            End Select
+                                        Loop
                                     End If
                                 Case 3
                                     repositorioProd.BucarPorNombre()

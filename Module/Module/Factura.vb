@@ -134,6 +134,7 @@ Public Class Factura
         Me.NumeroFactura = numero
     End Sub
     Public Sub New()
+
         Me.Fecha = Date.Now
         Me.NumeroFactura = 1
     End Sub

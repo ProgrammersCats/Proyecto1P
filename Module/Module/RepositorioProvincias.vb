@@ -71,8 +71,27 @@ Public Class RepositorioProvincias
         xmlFile.Formatting = Formatting.Indented
         nodoRaiz.WriteContentTo(xmlFile)
         xmlFile.Close()
-
-
     End Sub
 
+    Public Function ValidarProvinciax(provincia As String)
+        Dim nombreProv = False
+        For Each provi As Provincia In Me.ArrayProvincias
+            If (provi.NombreProvincia.ToLower = provincia.ToLower) Then
+                nombreProv = True
+            Else
+                nombreProv = False
+            End If
+        Next
+        Return nombreProv
+    End Function
+    Function ValidarProvincia(provincia As String)
+        For Each provi As Provincia In Me.ArrayProvincias
+            If (provi.NombreProvincia.ToLower = provincia.ToLower) Then
+                Return provi
+                Exit For
+
+            End If
+        Next
+        Return Nothing
+    End Function
 End Class
