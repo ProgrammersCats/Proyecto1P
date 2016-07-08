@@ -1,7 +1,7 @@
 ﻿Imports System.Xml
 
 Public Class RepositorioFactura
-    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\facturas.xml"
+    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\facturas.xml"
     Dim xmlDom As New XmlDocument()
 
     Private _arrayFacturas As New ArrayList()
