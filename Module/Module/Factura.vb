@@ -1,4 +1,5 @@
-﻿Imports [Module]
+﻿Imports System.Xml
+Imports [Module]
 
 Public Class Factura
     Private _numeroFactura As String
@@ -37,6 +38,31 @@ Public Class Factura
             _vendedor = value
         End Set
     End Property
+
+    Public Function GenerarXml(xmlDom As XmlDocument) As XmlElement
+        Dim item As XmlElement = xmlDom.CreateElement("Item")
+        Dim nroFactura As XmlElement = xmlDom.CreateElement("nroFactura")
+        Dim fecha As XmlElement = xmlDom.CreateElement("fecha")
+        Dim subtotal As XmlElement = xmlDom.CreateElement("subtotal")
+        Dim iva As XmlElement = xmlDom.CreateElement("iva")
+        Dim total As XmlElement = xmlDom.CreateElement("total")
+        Dim cliente As XmlElement = xmlDom.CreateElement("cliente")
+
+        nroFactura.InnerText = Me.NumeroFactura
+        fecha.InnerText = Me.Fecha
+        subtotal.InnerText = Me.Subtotal
+        iva.InnerText = Me.IVA
+        total.InnerText = Me.Total
+        'cliente.InnerText = Me.Cliente.GenerarXml(xmlDom)
+
+
+        item.AppendChild(nroFactura)
+        item.AppendChild(fecha)
+        item.AppendChild(subtotal)
+        item.AppendChild(iva)
+        item.AppendChild(total)
+        Return item
+    End Function
 
     Private _lugarEmi As Provincia
     Public Property LugarEmision() As Provincia

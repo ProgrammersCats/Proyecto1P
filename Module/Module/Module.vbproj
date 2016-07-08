@@ -91,6 +91,7 @@
     <Compile Include="Persona.vb" />
     <Compile Include="Producto.vb" />
     <Compile Include="Provincia.vb" />
+    <Compile Include="RepositorioFactura.vb" />
     <Compile Include="RepositorioProductos.vb" />
     <Compile Include="RepositorioProvincias.vb" />
     <Compile Include="TipoPagos.vb" />

@@ -146,11 +146,25 @@ Module Module1
                                                 End If
                                             Else
                                                 flagItems = False
-                                                Console.Clear()
-                                                Salir()
+                                                'Salir()
                                             End If
                                         Loop
-                                        Console.WriteLine("Salio del do while")
+                                        Dim guardar As Integer
+                                        Console.WriteLine("¿Desea guardar la factura?")
+                                        Console.WriteLine("1. Si")
+                                        Console.WriteLine("0. No")
+                                        Console.Write("Eliga una opción: ")
+                                        guardar = Console.Read()
+                                        Select Case guardar
+                                            Case 1
+                                                'guardar
+                                            Case 0
+                                                Console.WriteLine("No se guardo la factura")
+                                            Case Else
+                                                Console.WriteLine("Opción Incorrecta")
+
+                                        End Select
+
                                     End If
                                 Case 3
                                     repositorioProd.BucarPorNombre()
