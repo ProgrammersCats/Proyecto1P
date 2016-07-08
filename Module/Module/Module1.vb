@@ -115,7 +115,12 @@ Module Module1
                                     Console.WriteLine(" /////////// DATOS CLIENTE \\\\\\\\\\\")
 
                                     cliente1 = New Cliente()
-                                    cliente1.PedirDatosCliente()
+                                    If (cliente1.PedirDatosCliente()) Then
+                                    Else
+                                        Console.WriteLine("* No se agregó ningun cliente *")
+
+                                        cliente1 = Nothing
+                                    End If
 
                                     Salir()
                                 Case 2
@@ -127,6 +132,7 @@ Module Module1
                                         Console.WriteLine("** Primero ingrese los datos del cliente **")
                                         Salir()
                                     Else
+                                        fact.Cliente = cliente1
                                         Dim flagProv As Boolean = True
                                         Do While (flagProv)
                                             Dim provincia As String

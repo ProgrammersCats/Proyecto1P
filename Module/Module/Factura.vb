@@ -2,7 +2,7 @@
 Imports [Module]
 
 Public Class Factura
-    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\facturas.xml"
+    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\facturas.xml"
     Dim xmlDom As New XmlDocument()
     Private _numeroFactura As String
     Public Property NumeroFactura As String
@@ -155,12 +155,8 @@ Public Class Factura
                             "Id Factura: " + vbTab + Me.NumeroFactura + vbNewLine +
                             "Lugar Emision: " + vbTab + Me.LugarEmision.NombreProvincia + vbTab + vbTab + vbTab + "Fecha: " + vbTab + vbTab + Me.Fecha + vbNewLine +
                             "Nombre: " + vbTab + Cliente.Nombre + vbTab + vbTab + vbTab + "RUC: " + vbTab + vbTab + Cliente.Ruc + vbNewLine +
-                            "Dirección: " + vbTab + Cliente.Direccion + vbTab + vbTab + vbTab + "Teléfono: " + vbTab + Cliente.Telefono + vbNewLine +
-                          "--------------------------------------------------------------------------------" + vbNewLine +
-                          "                                    DETALLE                                     " + vbNewLine +
-                          "--------------------------------------------------------------------------------" + vbNewLine +
-                            "Id" + vbTab + vbTab + "Descripción" + vbTab + "Cantidad" + vbTab + "Precio" + vbTab + vbTab + "Total" + vbNewLine +
-                          "================================================================================")
+                            "Dirección: " + vbTab + Cliente.Direccion + vbTab + vbTab + vbTab + "Teléfono: " + vbTab + Cliente.Telefono)
+
         Me.MostrarDetalles()
 
     End Sub
@@ -178,6 +174,11 @@ Public Class Factura
 
     End Sub
     Public Sub MostrarDetalles()
+        Console.WriteLine("--------------------------------------------------------------------------------" + vbNewLine +
+                          "                                    DETALLE                                     " + vbNewLine +
+                          "--------------------------------------------------------------------------------" + vbNewLine +
+                            "Id" + vbTab + vbTab + "Descripción" + vbTab + "Cantidad" + vbTab + "Precio" + vbTab + vbTab + "Total" + vbNewLine +
+                          "================================================================================")
         For Each deta As Detalle In Me.Detalles
             Console.WriteLine(deta.ToString)
         Next
@@ -186,4 +187,5 @@ Public Class Factura
                             "Devolución: " + vbTab & Me.Devolucion & vbNewLine + "Total a pagar: " + vbTab & Me.TotalPagar & vbNewLine +
                           "--------------------------------------------------------------------------------")
     End Sub
+
 End Class

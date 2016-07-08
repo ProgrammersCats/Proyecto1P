@@ -1,30 +1,47 @@
 <collection>
   <factura>
     <nroFactura>0</nroFactura>
-    <fecha>08/07/2016 0:25:13</fecha>
+    <fecha>08/07/2016 0:49:43</fecha>
     <cliente>
-      <nombre>asdad</nombre>
-      <apellido>ada</apellido>
-      <telefono>add</telefono>
-      <direccion>sdad</direccion>
+      <nombre>sadasd</nombre>
+      <apellido>as</apellido>
+      <telefono>as</telefono>
+      <direccion>asd</direccion>
       <ruc>asd</ruc>
     </cliente>
+    <Vendedor>
+      <nombre>Kimmy</nombre>
+      <apellido>Miguel</apellido>
+      <telefono>2020456</telefono>
+      <direccion>Metropolis</direccion>
+    </Vendedor>
+    <detalle />
     <subtotal>20</subtotal>
     <iva>2,8</iva>
     <total>22,8</total>
+    <devolucion>0,228</devolucion>
   </factura>
   <factura>
     <nroFactura>1</nroFactura>
-    <fecha>08/07/2016 0:26:25</fecha>
+    <fecha>08/07/2016 0:50:04</fecha>
     <cliente>
-      <nombre>asdad</nombre>
-      <apellido>ada</apellido>
-      <telefono>add</telefono>
-      <direccion>sdad</direccion>
+      <nombre>sadasd</nombre>
+      <apellido>as</apellido>
+      <telefono>as</telefono>
+      <direccion>asd</direccion>
       <ruc>asd</ruc>
     </cliente>
-    <subtotal>110</subtotal>
-    <iva>15,4</iva>
-    <total>125,4</total>
+    <Vendedor>
+      <nombre>Kimmy</nombre>
+      <apellido>Miguel</apellido>
+      <telefono>2020456</telefono>
+      <direccion>Metropolis</direccion>
+    </Vendedor>
+    <detalle />
+    <detalle />
+    <subtotal>124</subtotal>
+    <iva>17,36</iva>
+    <total>141,36</total>
+    <devolucion>1,4136</devolucion>
   </factura>
 </collection>
