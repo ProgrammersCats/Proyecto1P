@@ -118,8 +118,8 @@ Public Class TipoPagos
             "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - " + vbNewLine +
         "| Tipo" + vbTab + vbTab + vbTab + " |" + vbTab + " Valor" + vbTab + " | " + vbNewLine +
         "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - " + vbNewLine +
-        "|1. Efectivo: " + vbTab + vbTab + vbTab + " |" + vbTab & Me.Efectivo & vbTab + " |" + vbTab + vbNewLine + "|2. Tarjeta:                " + vbTab + " |" + vbTab & Me.Tarjeta & vbTab +
-        " |" + vbNewLine + "|3. Dinero electronico: " + vbTab + " |" + vbTab & Me.DineroElectronico & vbTab + " |" + vbNewLine +
+        "|1. Efectivo: " + vbTab + vbTab + vbTab + " |  " & Me.Efectivo & vbTab + " |" + vbTab + vbNewLine + "|2. Tarjeta:                " + vbTab + " |  " & Me.Tarjeta & vbTab +
+        " |" + vbNewLine + "|3. Dinero electronico: " + vbTab + " |  " & Me.DineroElectronico & vbTab + " |" + vbNewLine +
         "......................................................................"
     End Function
 

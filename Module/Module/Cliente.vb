@@ -24,33 +24,33 @@ Public Class Cliente
 
     End Sub
 
-    Public Sub PedirDatosCliente()
+    Public Function PedirDatosCliente()
         Console.WriteLine("- Si desea salir digite 0 -")
         Dim nom, ape, dir, tel, ruc As String
         Console.Write("Ingrese nombre:")
         nom = Console.ReadLine()
         If (nom = "0") Then
-            Exit Sub
+            Exit Function
         End If
         Console.Write("Ingrese apellido:")
         ape = Console.ReadLine()
         If (ape = "0") Then
-            Exit Sub
+            Exit Function
         End If
         Console.Write("Ingrese dirección:")
         dir = Console.ReadLine()
         If (dir = "0") Then
-            Exit Sub
+            Exit Function
         End If
         Console.Write("Ingrese RUC:")
         ruc = Console.ReadLine()
         If (ruc = "0") Then
-            Exit Sub
+            Exit Function
         End If
         Console.Write("Ingrese teléfono:")
         tel = Console.ReadLine()
         If (tel = "0") Then
-            Exit Sub
+            Exit Function
         End If
 
         Me.Nombre = nom
@@ -59,7 +59,8 @@ Public Class Cliente
         Me.Telefono = tel
         Me.Direccion = dir
         Console.WriteLine("* El cliente " + Me.Nombre + " ha sido agregado con éxito *")
-    End Sub
+        Return True
+    End Function
     Public Function GenerarXml(xmlDom As XmlDocument) As XmlElement
         Dim item As XmlElement = xmlDom.CreateElement("cliente")
         Dim nombre As XmlElement = xmlDom.CreateElement("nombre")

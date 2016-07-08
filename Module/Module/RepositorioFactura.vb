@@ -37,4 +37,10 @@ Public Class RepositorioFactura
 
 
     End Sub
+    Public Sub MostrarFacturas()
+        For Each fact As Factura In ArrayFacturas
+            Console.WriteLine("===================================================")
+            fact.MostrarFactura()
+        Next
+    End Sub
 End Class

@@ -1,17 +1,30 @@
 <collection>
   <factura>
     <nroFactura>0</nroFactura>
-    <fecha>08/07/2016 0:10:53</fecha>
+    <fecha>08/07/2016 0:25:13</fecha>
     <cliente>
-      <nombre>muñoz</nombre>
-      <apellido>valle</apellido>
-      <telefono>456</telefono>
-      <direccion>samanes</direccion>
-      <idCliente>0</idCliente>
-      <ruc>78899</ruc>
+      <nombre>asdad</nombre>
+      <apellido>ada</apellido>
+      <telefono>add</telefono>
+      <direccion>sdad</direccion>
+      <ruc>asd</ruc>
     </cliente>
     <subtotal>20</subtotal>
     <iva>2,8</iva>
     <total>22,8</total>
+  </factura>
+  <factura>
+    <nroFactura>1</nroFactura>
+    <fecha>08/07/2016 0:26:25</fecha>
+    <cliente>
+      <nombre>asdad</nombre>
+      <apellido>ada</apellido>
+      <telefono>add</telefono>
+      <direccion>sdad</direccion>
+      <ruc>asd</ruc>
+    </cliente>
+    <subtotal>110</subtotal>
+    <iva>15,4</iva>
+    <total>125,4</total>
   </factura>
 </collection>

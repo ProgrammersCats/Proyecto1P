@@ -101,21 +101,28 @@ Module Module1
                             Console.WriteLine("1.  Pedir datos del cliente")
                             Console.WriteLine("2.  Crear Factura")
                             Console.WriteLine("3.  Buscar producto por nombre")
-                            Console.WriteLine("4.  Salir")
-                            Console.Write("Elija una opción(1-4): ")
+                            Console.WriteLine("4.  Mostrar facturas")
+                            Console.WriteLine("5.  Salir")
+                            Console.Write("Elija una opción(1-5): ")
                             Dim op As String
                             op = Console.ReadLine()
                             Select Case op
+                                Case 4
+                                    repositorioFact.MostrarFacturas()
+                                    Salir()
                                 Case 1
 
                                     Console.WriteLine(" /////////// DATOS CLIENTE \\\\\\\\\\\")
 
                                     cliente1 = New Cliente()
                                     cliente1.PedirDatosCliente()
+
                                     Salir()
                                 Case 2
                                     Console.WriteLine(" /////////// FACTURACIÓN \\\\\\\\\\\")
+
                                     fact = New Factura()
+
                                     If cliente1 Is Nothing Then
                                         Console.WriteLine("** Primero ingrese los datos del cliente **")
                                         Salir()
@@ -132,13 +139,8 @@ Module Module1
                                                 flagProv = False
                                             End If
                                         Loop
-                                        Dim flagPago As Boolean = True
-                                        Do While (flagPago)
-                                            Console.WriteLine(pagos.ToString())
-                                            fact.Devolucion = pagos.ElegirTipoPago()
-                                            Exit Do
-                                        Loop
-                                        fact.Cliente = cliente1
+
+
                                         fact.Vendedor = vendedor
                                         fact.LugarEmision = repositorioProv.ArrayProvincias.Item(0)
                                         Dim flagItems As Boolean = True
@@ -160,7 +162,7 @@ Module Module1
                                                     Dim prod As Producto
                                                     prod = repositorioProd.BuscarPorCodigo(cod)
                                                     fact.AgregarProducto(prod)
-                                                    fact.MostrarFactura()
+                                                    fact.MostrarDetalles()
                                                     Salir()
                                                 End If
                                             Else
@@ -178,23 +180,30 @@ Module Module1
                                             guardar = Console.ReadLine()
                                             Select Case guardar
                                                 Case 1
+                                                    Console.WriteLine(pagos.ToString())
+                                                    fact.Devolucion = pagos.ElegirTipoPago()
                                                     fact.NumeroFactura = contadorFactura
                                                     repositorioFact.AgregarFactura(fact)
                                                     repositorioFact.ActualizarXml()
                                                     flagGuardar = False
                                                     contadorFactura += 1
+                                                    Console.WriteLine("* FACTURA GUARDADA CON ÉXITO *")
+                                                    fact.MostrarFactura()
+                                                    Salir()
                                                 Case 0
-                                                    Console.WriteLine("No se guardo la factura")
+                                                    Console.WriteLine("* No se guardó la factura *")
                                                     flagGuardar = False
+                                                    Salir()
                                                 Case Else
-                                                    Console.WriteLine("Opción Incorrecta")
+                                                    Console.WriteLine("* OPCIÓN INCORRECTA *")
+                                                    Salir()
                                             End Select
                                         Loop
                                     End If
                                 Case 3
                                     repositorioProd.BucarPorNombre()
                                     Salir()
-                                Case 4
+                                Case 5
                                     flag = 1
                                     Console.Clear()
                                     Exit Select
