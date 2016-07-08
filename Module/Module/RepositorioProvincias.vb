@@ -2,7 +2,7 @@
 
 Public Class RepositorioProvincias
 
-    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\provincias.xml"
+    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\provincias.xml"
     Dim xmlDom As New XmlDocument()
 
     Private _repositorioProv As New ArrayList()

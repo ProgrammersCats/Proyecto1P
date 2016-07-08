@@ -1,7 +1,7 @@
 ﻿Imports System.Xml
 
 Public Class RepositorioProductos
-    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\productos.xml"
+    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\productos.xml"
     Dim xmlDom As New XmlDocument()
 
     Private _arrayProductos As New ArrayList()
@@ -96,5 +96,21 @@ Public Class RepositorioProductos
         Return Nothing
     End Function
 
+    Public Sub BucarPorNombre()
+        Dim productoBuscar As String
+        Dim flag As Boolean = False
+        Console.WriteLine("==== BUSCANDO PRODUCTO POR NOMBRE ====")
+        Console.WriteLine("Ingrese el nombre del producto:")
+        productoBuscar = Console.ReadLine()
+        For Each producto As Producto In Me.ArrayProductos
+            If (productoBuscar.ToLower() = producto.NombreProducto.ToLower) Then
+                Console.WriteLine("Se encontró el producto")
+                Console.WriteLine("|    " + "Codigo" + vbTab + "| " + "Costo" + "   |    " + "Precio" + "   |" + vbTab + "Nombre")
+                Console.WriteLine(producto.ToString())
+                flag = True
+            End If
+        Next
+        If (flag = False) Then Console.WriteLine("El producto no está en el inventario")
 
+    End Sub
 End Class

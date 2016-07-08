@@ -139,7 +139,8 @@ Module Module1
                                         End If
                                     End If
                                 Case 3
-                                        Salir()
+                                    repositorioProd.BucarPorNombre()
+                                    Salir()
                                 Case 4
                                     flag = 1
                                     Console.Clear()
