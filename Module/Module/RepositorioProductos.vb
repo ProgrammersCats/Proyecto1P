@@ -1,7 +1,7 @@
 ﻿Imports System.Xml
 
 Public Class RepositorioProductos
-    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\productos.xml"
+    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\productos.xml"
     Dim xmlDom As New XmlDocument()
 
     Private _arrayProductos As New ArrayList()

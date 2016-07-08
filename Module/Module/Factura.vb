@@ -2,7 +2,7 @@
 Imports [Module]
 
 Public Class Factura
-    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\facturas.xml"
+    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\facturas.xml"
     Dim xmlDom As New XmlDocument()
     Private _numeroFactura As String
     Public Property NumeroFactura As String
