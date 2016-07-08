@@ -122,21 +122,36 @@ Module Module1
                                         fact.Cliente = cliente1
                                         fact.Vendedor = vendedor
                                         fact.LugarEmision = repositorioProv.ArrayProvincias.Item(0)
-                                        Dim cod As String
-                                        Console.Write("Ingrese código de producto: ")
-                                        cod = Console.ReadLine()
+                                        Dim flagItems As Boolean = True
+                                        Do While (flagItems)
+                                            Dim opVender As Integer
+                                            Console.WriteLine("¿Desea agregar un producto?")
+                                            Console.WriteLine("1. Si")
+                                            Console.WriteLine("0. Cancelar")
+                                            Console.Write("Eliga una opción: ")
+                                            opVender = Console.ReadLine()
+                                            If opVender = 1 Then
+                                                Dim cod As String
+                                                Console.Write("Ingrese código de producto: ")
+                                                cod = Console.ReadLine()
+                                                If (repositorioProd.BuscarPorCodigo(cod) Is Nothing) Then
+                                                    Console.WriteLine("* No existe un producto con ese código *")
+                                                    Salir()
+                                                Else
+                                                    Dim prod As Producto
+                                                    prod = repositorioProd.BuscarPorCodigo(cod)
+                                                    fact.AgregarProducto(prod)
+                                                    fact.MostrarFactura()
+                                                    Salir()
+                                                End If
+                                            Else
+                                                flagItems = False
+                                                Console.Clear()
+                                                Salir()
 
-                                        If (repositorioProd.BuscarPorCodigo(cod) Is Nothing) Then
-                                            Console.WriteLine("* No existe un producto con ese código *")
-                                            Salir()
-                                        Else
-                                            Dim prod As Producto
-                                            prod = repositorioProd.BuscarPorCodigo(cod)
-                                            fact.AgregarProducto(prod)
-                                            fact.MostrarFactura()
-                                            Salir()
+                                            End If
 
-                                        End If
+                                        Loop
                                     End If
                                 Case 3
                                     repositorioProd.BucarPorNombre()
