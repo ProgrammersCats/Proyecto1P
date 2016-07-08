@@ -1,1 +1,17 @@
-﻿
+<collection>
+  <Item>
+    <nroFactura>1</nroFactura>
+    <fecha>07/07/2016 21:48:55</fecha>
+    <Item>
+      <nombre>Kimmy</nombre>
+      <apellido>Muñoz</apellido>
+      <telefono>20401312</telefono>
+      <direccion>Gatunalandia</direccion>
+      <idCliente>0</idCliente>
+      <ruc>0993182854001</ruc>
+    </Item>
+    <subtotal>50</subtotal>
+    <iva>7</iva>
+    <total>57</total>
+  </Item>
+</collection>

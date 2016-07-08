@@ -1,4 +1,6 @@
-﻿Public Class Cliente
+﻿Imports System.Xml
+
+Public Class Cliente
     Inherits Persona
     Private _idCliente As Integer
     Public Property IdCliente() As String
@@ -66,6 +68,32 @@
         Me.Direccion = dir
         Console.WriteLine("* El cliente " + Me.Nombre + " ha sido agregado con éxito *")
     End Sub
+    Public Function GenerarXml(xmlDom As XmlDocument) As XmlElement
+        Dim item As XmlElement = xmlDom.CreateElement("cliente")
+        Dim nombre As XmlElement = xmlDom.CreateElement("nombre")
+        Dim apellido As XmlElement = xmlDom.CreateElement("apellido")
+        Dim telefono As XmlElement = xmlDom.CreateElement("telefono")
+        Dim direccion As XmlElement = xmlDom.CreateElement("direccion")
+        Dim idCliente As XmlElement = xmlDom.CreateElement("idCliente")
+        Dim ruc As XmlElement = xmlDom.CreateElement("ruc")
+
+        nombre.InnerText = Me.Nombre
+        apellido.InnerText = Me.Apellido
+        telefono.InnerText = Me.Telefono
+        direccion.InnerText = Me.Direccion
+        idCliente.InnerText = Me.IdCliente
+        ruc.InnerText = Me.Ruc
+
+
+
+        item.AppendChild(nombre)
+        item.AppendChild(apellido)
+        item.AppendChild(telefono)
+        item.AppendChild(direccion)
+        item.AppendChild(idCliente)
+        item.AppendChild(ruc)
+        Return item
+    End Function
 
     Public Overrides Function ToString() As String
         Return "Nombre: " + Me.Nombre + " " + Me.Apellido + vbTab + "RUC: " + Me.Ruc + vbNewLine +

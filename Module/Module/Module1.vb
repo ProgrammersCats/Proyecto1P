@@ -11,6 +11,7 @@ Module Module1
 
         Dim repositorioProd As New RepositorioProductos()
         Dim repositorioProv As New RepositorioProvincias()
+        Dim repositorioFact As New RepositorioFactura()
         Dim pagos As New TipoPagos()
         repositorioProd.CargarDatos()
         repositorioProv.CargarDatos()
@@ -154,10 +155,11 @@ Module Module1
                                         Console.WriteLine("1. Si")
                                         Console.WriteLine("0. No")
                                         Console.Write("Eliga una opción: ")
-                                        guardar = Console.Read()
+                                        guardar = Console.ReadLine()
                                         Select Case guardar
                                             Case 1
-                                                'guardar
+                                                repositorioFact.AgregarFactura(fact)
+                                                repositorioFact.ActualizarXml()
                                             Case 0
                                                 Console.WriteLine("No se guardo la factura")
                                             Case Else

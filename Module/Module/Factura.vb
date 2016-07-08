@@ -2,6 +2,8 @@
 Imports [Module]
 
 Public Class Factura
+    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\facturas.xml"
+    Dim xmlDom As New XmlDocument()
     Private _numeroFactura As String
     Public Property NumeroFactura As String
         Get
@@ -40,7 +42,7 @@ Public Class Factura
     End Property
 
     Public Function GenerarXml(xmlDom As XmlDocument) As XmlElement
-        Dim item As XmlElement = xmlDom.CreateElement("Item")
+        Dim item As XmlElement = xmlDom.CreateElement("factura")
         Dim nroFactura As XmlElement = xmlDom.CreateElement("nroFactura")
         Dim fecha As XmlElement = xmlDom.CreateElement("fecha")
         Dim subtotal As XmlElement = xmlDom.CreateElement("subtotal")
@@ -53,11 +55,12 @@ Public Class Factura
         subtotal.InnerText = Me.Subtotal
         iva.InnerText = Me.IVA
         total.InnerText = Me.Total
-        'cliente.InnerText = Me.Cliente.GenerarXml(xmlDom)
+
 
 
         item.AppendChild(nroFactura)
         item.AppendChild(fecha)
+        item.AppendChild(Me.Cliente.GenerarXml(xmlDom))
         item.AppendChild(subtotal)
         item.AppendChild(iva)
         item.AppendChild(total)
