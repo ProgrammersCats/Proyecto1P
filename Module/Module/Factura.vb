@@ -48,22 +48,33 @@ Public Class Factura
         Dim subtotal As XmlElement = xmlDom.CreateElement("subtotal")
         Dim iva As XmlElement = xmlDom.CreateElement("iva")
         Dim total As XmlElement = xmlDom.CreateElement("total")
+        Dim devolucion As XmlElement = xmlDom.CreateElement("devolucion")
         Dim cliente As XmlElement = xmlDom.CreateElement("cliente")
+        Dim vendedor As XmlElement = xmlDom.CreateElement("vendedor")
+
 
         nroFactura.InnerText = Me.NumeroFactura
         fecha.InnerText = Me.Fecha
         subtotal.InnerText = Me.Subtotal
         iva.InnerText = Me.IVA
         total.InnerText = Me.Total
+        devolucion.InnerText = Me.Devolucion
 
 
 
         item.AppendChild(nroFactura)
         item.AppendChild(fecha)
         item.AppendChild(Me.Cliente.GenerarXml(xmlDom))
+        item.AppendChild(Me.Vendedor.GenerarXml(xmlDom))
+        For Each det As Detalle In Me.Detalles
+            Dim detalle As XmlElement = xmlDom.CreateElement("detalle")
+            item.AppendChild(det.GenerarXml(xmlDom))
+        Next
+
         item.AppendChild(subtotal)
         item.AppendChild(iva)
         item.AppendChild(total)
+        item.AppendChild(devolucion)
         Return item
     End Function
 
