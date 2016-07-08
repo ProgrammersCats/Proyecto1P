@@ -1,4 +1,6 @@
-﻿Public Class Detalle
+﻿Imports System.Xml
+
+Public Class Detalle
     Private _item As Producto
     Private _codigo As String
     Public Property Codigo() As String
@@ -42,5 +44,14 @@
 
     Public Overrides Function ToString() As String
         Return Me.Item.CodigoProducto + vbTab + vbTab + Me.Item.NombreProducto & vbTab + vbTab & Me.Cantidad & vbTab + vbTab & Me.Item.Precio & vbTab + vbTab & Me.TotalDetalle
+    End Function
+
+    Public Function GenerarXml(xmlDom As XmlDocument) As XmlNode
+        Dim item As XmlElement = xmlDom.CreateElement("detalle")
+        Dim codigo As XmlElement = xmlDom.CreateElement("codigo")
+        Dim producto As XmlElement = xmlDom.CreateElement("producto")
+        Dim cantidad As XmlElement = xmlDom.CreateElement("cantidad")
+        Dim totalDetalle As XmlElement = xmlDom.CreateElement("totalDetalle")
+        Return item
     End Function
 End Class
