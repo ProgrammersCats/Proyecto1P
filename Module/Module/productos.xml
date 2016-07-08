@@ -35,4 +35,10 @@
     <costo>50</costo>
     <precio>100</precio>
   </Item>
+  <Item>
+    <id_producto>007</id_producto>
+    <descripcion>Cargador</descripcion>
+    <costo>3</costo>
+    <precio>6</precio>
+  </Item>
 </collection>

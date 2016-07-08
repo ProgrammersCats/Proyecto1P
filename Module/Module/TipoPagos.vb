@@ -13,13 +13,13 @@ Public Class TipoPagos
         End Set
     End Property
 
-    Private _tarjetaCredito As Double
-    Public Property TarjetaCredito() As Double
+    Private _tarjeta As Double
+    Public Property Tarjeta() As Double
         Get
-            Return _tarjetaCredito
+            Return _tarjeta
         End Get
         Set(ByVal value As Double)
-            _tarjetaCredito = value
+            _tarjeta = value
         End Set
     End Property
 
@@ -42,8 +42,8 @@ Public Class TipoPagos
                     Select Case datos.Name
                         Case "efectivo"
                             Me.Efectivo = datos.InnerText
-                        Case "tarjeta_credito"
-                            Me.TarjetaCredito = datos.InnerText
+                        Case "tarjeta"
+                            Me.Tarjeta = datos.InnerText
                         Case "dinero_electronico"
                             Me.DineroElectronico = datos.InnerText
 
@@ -56,7 +56,7 @@ Public Class TipoPagos
 
     Sub New(efectivo As Double, tarjeta As Double, dineroE As Double)
         Me.Efectivo = efectivo
-        Me.TarjetaCredito = tarjeta
+        Me.Tarjeta = tarjeta
         Me.DineroElectronico = dineroE
 
     End Sub
@@ -72,8 +72,8 @@ Public Class TipoPagos
                 Me.Efectivo = Console.ReadLine()
 
             Case "2"
-                Console.WriteLine("Ingrese nuevo valor para Tarjeta de Credito:")
-                Me.TarjetaCredito = Console.ReadLine()
+                Console.WriteLine("Ingrese nuevo valor para Tarjeta:")
+                Me.Tarjeta = Console.ReadLine()
             Case "3"
                 Console.WriteLine("Ingrese nuevo valor para Dinero Electronico:")
                 Me.DineroElectronico = Console.ReadLine()
@@ -91,11 +91,11 @@ Public Class TipoPagos
         nodoRaiz.AppendChild(collection)
         Dim tipo As XmlElement = xmlDom.CreateElement("TipoPago")
         Dim efectivo As XmlElement = xmlDom.CreateElement("efectivo")
-        Dim tarjeta As XmlElement = xmlDom.CreateElement("tarjeta_credito")
+        Dim tarjeta As XmlElement = xmlDom.CreateElement("tarjeta")
         Dim dineroE As XmlElement = xmlDom.CreateElement("dinero_electronico")
 
         efectivo.InnerText = Me.Efectivo
-        tarjeta.InnerText = Me.TarjetaCredito
+        tarjeta.InnerText = Me.Tarjeta
         dineroE.InnerText = Me.DineroElectronico
 
         tipo.AppendChild(efectivo)
@@ -118,7 +118,7 @@ Public Class TipoPagos
             "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - " + vbNewLine +
         "| Tipo" + vbTab + vbTab + vbTab + " |" + vbTab + " Valor" + vbTab + " | " + vbNewLine +
         "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - " + vbNewLine +
-        "|1. Efectivo: " + vbTab + vbTab + vbTab + " |" + vbTab & Me.Efectivo & vbTab + " |" + vbTab + vbNewLine + "|2. Tarjeta de Credito: " + vbTab + " |" + vbTab & Me.TarjetaCredito & vbTab +
+        "|1. Efectivo: " + vbTab + vbTab + vbTab + " |" + vbTab & Me.Efectivo & vbTab + " |" + vbTab + vbNewLine + "|2. Tarjeta:                " + vbTab + " |" + vbTab & Me.Tarjeta & vbTab +
         " |" + vbNewLine + "|3. Dinero electronico: " + vbTab + " |" + vbTab & Me.DineroElectronico & vbTab + " |" + vbNewLine +
         "......................................................................"
     End Function

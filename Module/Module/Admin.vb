@@ -2,15 +2,6 @@
 
 Public Class Admin
     Inherits Persona
-    Private _idAdministrador As Integer
-    Public Property IdAdmin() As Integer
-        Get
-            Return _idAdministrador
-        End Get
-        Set(ByVal value As Integer)
-            _idAdministrador = value
-        End Set
-    End Property
     Private _usuario As String
     Public Property Usuario() As String
         Get
@@ -42,9 +33,8 @@ Public Class Admin
         Me.Usuario = usuario
         Me.Contraseña = contraseña
     End Sub
-    Public Sub New(nombre As String, apellido As String, telefono As String, direccion As String, idAdministrador As Integer)
+    Public Sub New(nombre As String, apellido As String, telefono As String, direccion As String)
         MyBase.New(nombre, apellido, telefono, direccion)
-        Me.IdAdmin = idAdministrador
     End Sub
     Private _repositorio As RepositorioProductos
     Public Property RepositorioProductos() As RepositorioProductos
@@ -97,12 +87,18 @@ Public Class Admin
                                 If (Me.Contraseña.Contains(datos.InnerText)) Then
                                     cont = cont + 1
                                 End If
+                            Case "nombre"
+                                Me.Nombre = datos.InnerText
+                            Case "apellido"
+                                Me.Apellido = datos.InnerText
+                            Case "telefono"
+                                Me.Telefono = datos.InnerText
+                            Case "direccion"
+                                Me.Direccion = datos.InnerText
                         End Select
                     Next
                 End If
             Next
-
-
         Next
         If (cont = 2) Then
             Return True

@@ -32,6 +32,14 @@ Public Class Vendedor
                                 If (Me.Contraseña.Contains(datos.InnerText)) Then
                                     cont = cont + 1
                                 End If
+                            Case "nombre"
+                                Me.Nombre = datos.InnerText
+                            Case "apellido"
+                                Me.Apellido = datos.InnerText
+                            Case "telefono"
+                                Me.Telefono = datos.InnerText
+                            Case "direccion"
+                                Me.Direccion = datos.InnerText
                         End Select
                     Next
                 End If

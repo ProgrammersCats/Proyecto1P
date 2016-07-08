@@ -1,17 +1,32 @@
 <collection>
-  <Item>
+  <factura>
     <nroFactura>1</nroFactura>
-    <fecha>07/07/2016 21:48:55</fecha>
-    <Item>
+    <fecha>07/07/2016 22:26:39</fecha>
+    <cliente>
       <nombre>Kimmy</nombre>
       <apellido>Muñoz</apellido>
-      <telefono>20401312</telefono>
-      <direccion>Gatunalandia</direccion>
+      <telefono>20456</telefono>
+      <direccion>Samanes</direccion>
       <idCliente>0</idCliente>
-      <ruc>0993182854001</ruc>
-    </Item>
-    <subtotal>50</subtotal>
-    <iva>7</iva>
-    <total>57</total>
-  </Item>
+      <ruc>0990154801</ruc>
+    </cliente>
+    <subtotal>148</subtotal>
+    <iva>20,72</iva>
+    <total>168,72</total>
+  </factura>
+  <factura>
+    <nroFactura>1</nroFactura>
+    <fecha>07/07/2016 22:27:32</fecha>
+    <cliente>
+      <nombre>Paul</nombre>
+      <apellido>Valle</apellido>
+      <telefono>254612</telefono>
+      <direccion>Cartagena</direccion>
+      <idCliente>0</idCliente>
+      <ruc>09955782001</ruc>
+    </cliente>
+    <subtotal>127</subtotal>
+    <iva>17,78</iva>
+    <total>144,78</total>
+  </factura>
 </collection>
