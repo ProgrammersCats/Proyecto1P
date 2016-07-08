@@ -52,6 +52,16 @@ Public Class Detalle
         Dim producto As XmlElement = xmlDom.CreateElement("producto")
         Dim cantidad As XmlElement = xmlDom.CreateElement("cantidad")
         Dim totalDetalle As XmlElement = xmlDom.CreateElement("totalDetalle")
+
+        codigo.InnerText = Me.Codigo
+        cantidad.InnerText = Me.Cantidad
+        totalDetalle.InnerText = Me.TotalDetalle
+
+        item.AppendChild(Me.Item.GenerarXml(xmlDom))
+        item.AppendChild(codigo)
+        item.AppendChild(cantidad)
+        item.AppendChild(totalDetalle)
+
         Return item
     End Function
 End Class
