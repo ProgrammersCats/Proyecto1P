@@ -94,6 +94,7 @@
     <Compile Include="RepositorioFactura.vb" />
     <Compile Include="RepositorioProductos.vb" />
     <Compile Include="RepositorioProvincias.vb" />
+    <Compile Include="RepositorioUsuarios.vb" />
     <Compile Include="TipoPagos.vb" />
     <Compile Include="Vendedor.vb" />
   </ItemGroup>

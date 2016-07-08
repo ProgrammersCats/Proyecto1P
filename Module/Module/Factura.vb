@@ -65,7 +65,7 @@ Public Class Factura
         item.AppendChild(nroFactura)
         item.AppendChild(fecha)
         item.AppendChild(Me.Cliente.GenerarXml(xmlDom))
-        item.AppendChild(Me.Vendedor.GenerarXml(xmlDom))
+        item.AppendChild(Me.Vendedor.GenerarXmlDatos(xmlDom))
         For Each det As Detalle In Me.Detalles
             Dim detalle As XmlElement = xmlDom.CreateElement("detalle")
             item.AppendChild(det.GenerarXml(xmlDom))

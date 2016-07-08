@@ -204,5 +204,24 @@ Public Class Admin
         Console.WriteLine("****************** PRODUCTO GUARDADO ******************")
     End Sub
 
+    Public Function GenerarXml(xmlDom As XmlDocument) As XmlNode
+        Dim item As XmlElement = xmlDom.CreateElement("Admin")
+        Dim user As XmlElement = xmlDom.CreateElement("usuario")
+        Dim contra As XmlElement = xmlDom.CreateElement("contraseña")
 
+
+        user.InnerText = Me.Usuario
+        contra.InnerText = Me.Contraseña
+
+
+        item.AppendChild(user)
+        item.AppendChild(contra)
+
+
+        Return item
+    End Function
+
+    Public Overrides Function ToString() As String
+        Return "Usuario: " + Me.Usuario + " Contraseña: " + Me.Contraseña
+    End Function
 End Class

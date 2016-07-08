@@ -12,14 +12,17 @@ Module Module1
         Dim repositorioProd As New RepositorioProductos()
         Dim repositorioProv As New RepositorioProvincias()
         Dim repositorioFact As New RepositorioFactura()
+        Dim repositorioUser As New RepositorioUsuarios()
         Dim pagos As New TipoPagos()
         repositorioProd.CargarDatos()
         repositorioProv.CargarDatos()
+        repositorioUser.CargarDatos()
         pagos.CargarDatos()
         Dim usuario, contraseña As String
         Dim contadorFactura As Integer
         Do While (True)
 
+            repositorioUser.MostrarUsuarios()
             Console.WriteLine("****************************   " + "INICIAR SESIÓN" + "   ***************************")
             Console.WriteLine("1.  Administrador")
             Console.WriteLine("2.  Vendedor")
@@ -42,34 +45,78 @@ Module Module1
                         Do While (True)
 
                             Console.WriteLine("================================ " + "ADMINISTRADOR" + " ================================")
-                            Console.WriteLine("1.  Agregar Producto")
-                            Console.WriteLine("2.  Eliminar Producto")
-                            Console.WriteLine("3.  Modificar IVA de provincias")
-                            Console.WriteLine("4.  Modificar Tipos de Pago")
-                            Console.WriteLine("5.  Cerrar Sesión")
-                            Console.Write("Elija una opción(1-5): ")
+                            Console.WriteLine("1.  Registrar Usuario")
+                            Console.WriteLine("2.  Agregar Producto")
+                            Console.WriteLine("3.  Eliminar Producto")
+                            Console.WriteLine("4.  Modificar IVA de provincias")
+                            Console.WriteLine("5.  Modificar Tipos de Pago")
+                            Console.WriteLine("6.  Cerrar Sesión")
+                            Console.Write("Elija una opción(1-6): ")
                             Dim op2 As String
                             op2 = Console.ReadLine()
 
                             Select Case op2
-
                                 Case 1
+                                    Console.Write("Usuario: ")
+                                    usuario = Console.ReadLine()
+                                    Console.Write("Contraseña: ")
+                                    contraseña = Console.ReadLine()
+                                    If (repositorioUser.ValidarUsuario(usuario, contraseña)) Then
+                                        Console.WriteLine("* USUARIO EXISTENTE *")
+
+                                    Else
+                                        While (True)
+                                            Console.WriteLine("// REGISTRAR COMO: \\")
+                                            Console.WriteLine("1.  Administrador")
+                                            Console.WriteLine("2.  Vendedor")
+                                            Console.WriteLine("3.  Salir")
+                                            Console.Write("Elija una opcion(1-3): ")
+                                            Dim opc As String
+                                            opc = Console.ReadLine()
+                                            Select Case opc
+                                                Case 1
+                                                    Dim admin As New Admin(usuario, contraseña)
+                                                    repositorioUser.AgregarAdmin(admin)
+                                                    Exit While
+                                                Case 2
+
+                                                    Dim vendedor As New Vendedor(usuario, contraseña)
+                                                    repositorioUser.AgregarVendedor(vendedor)
+                                                    Exit While
+                                                Case 3
+                                                    Salir()
+                                                    Exit While
+
+                                                Case Else
+                                                    Console.WriteLine("* OPCIÓN INCORRECTA !! *")
+                                                    Salir()
+                                            End Select
+
+                                        End While
+                                    End If
+
+
+
+                                    repositorioUser.ActualizarXml()
+                                    Salir()
+
+                                Case 2
 
                                     adm.AgregarProducto()
                                     Salir()
-                                Case 2
+                                Case 3
                                     adm.EliminarProducto()
 
                                     Salir()
-                                Case 3
+                                Case 4
 
                                     adm.ModificarIva()
                                     Salir()
-                                Case 4
+                                Case 5
                                     Console.WriteLine(pagos.ToString)
                                     adm.ModificarPagos()
                                     Salir()
-                                Case 5
+                                Case 6
                                     Salir()
                                     Exit Do
                                 Case Else

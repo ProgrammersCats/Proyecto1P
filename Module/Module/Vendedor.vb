@@ -58,7 +58,7 @@ Public Class Vendedor
         Me.Contraseña = contraseña
     End Sub
 
-    Public Function GenerarXml(xmlDom As XmlDocument) As XmlNode
+    Public Function GenerarXmlDatos(xmlDom As XmlDocument) As XmlNode
         Dim item As XmlElement = xmlDom.CreateElement("Vendedor")
         Dim nombre As XmlElement = xmlDom.CreateElement("nombre")
         Dim apellido As XmlElement = xmlDom.CreateElement("apellido")
@@ -75,5 +75,25 @@ Public Class Vendedor
         item.AppendChild(telefono)
         item.AppendChild(direccion)
         Return item
+    End Function
+    Public Function GenerarXml(xmlDom As XmlDocument) As XmlNode
+        Dim item As XmlElement = xmlDom.CreateElement("Vendedor")
+        Dim user As XmlElement = xmlDom.CreateElement("usuario")
+        Dim contra As XmlElement = xmlDom.CreateElement("contraseña")
+
+
+        user.InnerText = Me.Nombre
+        contra.InnerText = Me.Contraseña
+
+
+        item.AppendChild(user)
+        item.AppendChild(contra)
+
+
+        Return item
+    End Function
+
+    Public Overrides Function ToString() As String
+        Return "Usuario: " + Me.Nombre + " Contraseña: " + Me.Contraseña
     End Function
 End Class
