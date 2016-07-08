@@ -1,13 +1,13 @@
 <collection>
   <factura>
     <nroFactura>0</nroFactura>
-    <fecha>08/07/2016 0:57:25</fecha>
+    <fecha>08/07/2016 11:04:40</fecha>
     <cliente>
-      <nombre>Kimmy</nombre>
-      <apellido>Muñoz</apellido>
-      <telefono>2040131</telefono>
-      <direccion>Samanes</direccion>
-      <ruc>0991025001</ruc>
+      <nombre>s</nombre>
+      <apellido>s</apellido>
+      <telefono>s</telefono>
+      <direccion>s</direccion>
+      <ruc>s</ruc>
     </cliente>
     <Vendedor>
       <nombre>Kimmy</nombre>
@@ -15,44 +15,20 @@
       <telefono>2020456</telefono>
       <direccion>Metropolis</direccion>
     </Vendedor>
-    <detalle>
-      <Item>
-        <id_producto>001</id_producto>
-        <descripcion>Globo</descripcion>
-        <costo>10</costo>
-        <precio>10</precio>
-      </Item>
-      <codigo>
-      </codigo>
-      <cantidad>2</cantidad>
-      <totalDetalle>20</totalDetalle>
-    </detalle>
-    <detalle>
-      <Item>
-        <id_producto>002</id_producto>
-        <descripcion>Maleta</descripcion>
-        <costo>15</costo>
-        <precio>20</precio>
-      </Item>
-      <codigo>
-      </codigo>
-      <cantidad>5</cantidad>
-      <totalDetalle>100</totalDetalle>
-    </detalle>
-    <subtotal>120</subtotal>
-    <iva>16,8</iva>
-    <total>136,8</total>
-    <devolucion>1,368</devolucion>
+    <subtotal>0</subtotal>
+    <iva>0</iva>
+    <total>0</total>
+    <devolucion>0</devolucion>
   </factura>
   <factura>
     <nroFactura>1</nroFactura>
-    <fecha>08/07/2016 0:58:49</fecha>
+    <fecha>08/07/2016 11:05:33</fecha>
     <cliente>
-      <nombre>Paul</nombre>
-      <apellido>Valle</apellido>
-      <telefono>256711</telefono>
-      <direccion>Cartagena</direccion>
-      <ruc>09641001</ruc>
+      <nombre>s</nombre>
+      <apellido>s</apellido>
+      <telefono>s</telefono>
+      <direccion>s</direccion>
+      <ruc>s</ruc>
     </cliente>
     <Vendedor>
       <nombre>Kimmy</nombre>
@@ -60,33 +36,9 @@
       <telefono>2020456</telefono>
       <direccion>Metropolis</direccion>
     </Vendedor>
-    <detalle>
-      <Item>
-        <id_producto>010</id_producto>
-        <descripcion>Zapatos</descripcion>
-        <costo>50</costo>
-        <precio>80</precio>
-      </Item>
-      <codigo>
-      </codigo>
-      <cantidad>5</cantidad>
-      <totalDetalle>400</totalDetalle>
-    </detalle>
-    <detalle>
-      <Item>
-        <id_producto>011</id_producto>
-        <descripcion>Silla Madera</descripcion>
-        <costo>120</costo>
-        <precio>200</precio>
-      </Item>
-      <codigo>
-      </codigo>
-      <cantidad>3</cantidad>
-      <totalDetalle>600</totalDetalle>
-    </detalle>
-    <subtotal>1000</subtotal>
-    <iva>140</iva>
-    <total>1140</total>
-    <devolucion>45,6</devolucion>
+    <subtotal>0</subtotal>
+    <iva>0</iva>
+    <total>0</total>
+    <devolucion>0</devolucion>
   </factura>
 </collection>

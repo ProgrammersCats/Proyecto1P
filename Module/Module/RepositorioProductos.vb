@@ -1,7 +1,7 @@
 ﻿Imports System.Xml
 
 Public Class RepositorioProductos
-    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\productos.xml"
+    Dim path As String = "..\..\productos.xml"
     Dim xmlDom As New XmlDocument()
 
     Private _arrayProductos As New ArrayList()
@@ -74,16 +74,19 @@ Public Class RepositorioProductos
 
     End Sub
 
-    Public Sub EliminarProductoPorCodigo(cod As Short)
+    Public Function EliminarProductoPorCodigo(cod As String)
         Dim indice As Short = 0
         For Each prod As Producto In ArrayProductos
             If (prod.CodigoProducto = cod) Then
                 Me.ArrayProductos.RemoveAt(indice)
+                Return True
                 Exit For
             End If
             indice = indice + 1
+
         Next
-    End Sub
+        Return False
+    End Function
 
     Function BuscarPorCodigo(cod As String)
         For Each prod As Producto In ArrayProductos

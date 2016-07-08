@@ -2,7 +2,7 @@
 Imports [Module]
 
 Public Class Factura
-    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\facturas.xml"
+    Dim path As String = "..\..\facturas.xml"
     Dim xmlDom As New XmlDocument()
     Private _numeroFactura As String
     Public Property NumeroFactura As String
@@ -153,7 +153,7 @@ Public Class Factura
 
         Console.WriteLine("--------------------------------------------------------------------------------" + vbNewLine +
                             "Id Factura: " + vbTab + Me.NumeroFactura + vbNewLine +
-                            "Lugar Emision: " + vbTab + Me.LugarEmision.NombreProvincia + vbTab + vbTab + vbTab + "Fecha: " + vbTab + vbTab + Me.Fecha + vbNewLine +
+                            "Lugar Emisión: " + vbTab + Me.LugarEmision.NombreProvincia + vbTab + vbTab + vbTab + "Fecha: " + vbTab + vbTab + Me.Fecha + vbNewLine +
                             "Nombre: " + vbTab + Cliente.Nombre + vbTab + vbTab + vbTab + "RUC: " + vbTab + vbTab + Cliente.Ruc + vbNewLine +
                             "Dirección: " + vbTab + Cliente.Direccion + vbTab + vbTab + vbTab + "Teléfono: " + vbTab + Cliente.Telefono)
 
@@ -166,9 +166,16 @@ Public Class Factura
         Dim cantidad As String
         Console.Write("Cantidad: ")
         cantidad = Console.ReadLine()
+        Select Case cantidad
+            Case 0 To 1000
+                Dim detalle As New Detalle(prod, CInt(cantidad))
+                Me.Detalles.Add(detalle)
+                Me.MostrarDetalles()
+            Case Else
+                Console.WriteLine("*Valor Incorrecto*")
+                Salir()
+        End Select
 
-        Dim detalle As New Detalle(prod, CInt(cantidad))
-        Me.Detalles.Add(detalle)
 
         'Console.Write("Numero incorrecto")
 

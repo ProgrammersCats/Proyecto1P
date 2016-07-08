@@ -2,7 +2,7 @@
 
 Public Class RepositorioProvincias
 
-    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\provincias.xml"
+    Dim path As String = "..\..\provincias.xml"
     Dim xmlDom As New XmlDocument()
 
     Private _repositorioProv As New ArrayList()
@@ -73,17 +73,7 @@ Public Class RepositorioProvincias
         xmlFile.Close()
     End Sub
 
-    Public Function ValidarProvinciax(provincia As String)
-        Dim nombreProv = False
-        For Each provi As Provincia In Me.ArrayProvincias
-            If (provi.NombreProvincia.ToLower = provincia.ToLower) Then
-                nombreProv = True
-            Else
-                nombreProv = False
-            End If
-        Next
-        Return nombreProv
-    End Function
+
     Function ValidarProvincia(provincia As String)
         For Each provi As Provincia In Me.ArrayProvincias
             If (provi.NombreProvincia.ToLower = provincia.ToLower) Then
@@ -94,4 +84,14 @@ Public Class RepositorioProvincias
         Next
         Return Nothing
     End Function
+    Function ValidarProvinciaPorCod(cod As String)
+        For Each provi As Provincia In Me.ArrayProvincias
+            If (provi.IdProvincia = cod) Then
+                Return True
+                Exit Function
+            End If
+        Next
+        Return False
+    End Function
+
 End Class
