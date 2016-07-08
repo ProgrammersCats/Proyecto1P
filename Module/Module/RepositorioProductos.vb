@@ -1,7 +1,7 @@
 ﻿Imports System.Xml
 
 Public Class RepositorioProductos
-    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\productos.xml"
+    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\productos.xml"
     Dim xmlDom As New XmlDocument()
 
     Private _arrayProductos As New ArrayList()
@@ -106,6 +106,8 @@ Public Class RepositorioProductos
             If (productoBuscar.ToLower() = producto.NombreProducto.ToLower) Then
                 Console.WriteLine("Se encontró el producto")
                 Console.WriteLine("|    " + "Codigo" + vbTab + "| " + "Costo" + "   |    " + "Precio" + "   |" + vbTab + "Nombre")
+                Console.WriteLine("--------------------------------------------------------------")
+
                 Console.WriteLine(producto.ToString())
                 flag = True
             End If

@@ -2,15 +2,7 @@
 
 Public Class Cliente
     Inherits Persona
-    Private _idCliente As Integer
-    Public Property IdCliente() As String
-        Get
-            Return _idCliente
-        End Get
-        Set(ByVal value As String)
-            _idCliente = value
-        End Set
-    End Property
+
 
     Private _ruc As String
     Public Property Ruc() As String
@@ -74,14 +66,12 @@ Public Class Cliente
         Dim apellido As XmlElement = xmlDom.CreateElement("apellido")
         Dim telefono As XmlElement = xmlDom.CreateElement("telefono")
         Dim direccion As XmlElement = xmlDom.CreateElement("direccion")
-        Dim idCliente As XmlElement = xmlDom.CreateElement("idCliente")
         Dim ruc As XmlElement = xmlDom.CreateElement("ruc")
 
         nombre.InnerText = Me.Nombre
         apellido.InnerText = Me.Apellido
         telefono.InnerText = Me.Telefono
         direccion.InnerText = Me.Direccion
-        idCliente.InnerText = Me.IdCliente
         ruc.InnerText = Me.Ruc
 
 
@@ -90,7 +80,6 @@ Public Class Cliente
         item.AppendChild(apellido)
         item.AppendChild(telefono)
         item.AppendChild(direccion)
-        item.AppendChild(idCliente)
         item.AppendChild(ruc)
         Return item
     End Function

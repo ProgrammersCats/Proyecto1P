@@ -164,7 +164,7 @@ Module Module1
                                         Loop
                                         Dim flagGuardar As Boolean = True
                                         Do While (flagGuardar)
-                                            Dim guardar As Integer
+                                            Dim guardar As String
                                             Console.WriteLine("¿Desea guardar la factura?")
                                             Console.WriteLine("1. Si")
                                             Console.WriteLine("0. No")

@@ -141,8 +141,9 @@ Public Class Factura
     Public Sub MostrarFactura()
 
         Console.WriteLine("--------------------------------------------------------------------------------" + vbNewLine +
-                            "Id Factura: " + vbTab + Me.NumeroFactura + vbTab + vbTab + vbTab + "Fecha: " + vbTab + Me.Fecha + vbNewLine +
-                            "Nombre: " + vbTab + Cliente.Nombre + vbTab + vbTab + vbTab + "RUC: " + vbTab + Cliente.Ruc + vbNewLine +
+                            "Id Factura: " + vbTab + Me.NumeroFactura + vbNewLine +
+                            "Lugar Emision: " + vbTab + Me.LugarEmision.NombreProvincia + vbTab + vbTab + vbTab + "Fecha: " + vbTab + vbTab + Me.Fecha + vbNewLine +
+                            "Nombre: " + vbTab + Cliente.Nombre + vbTab + vbTab + vbTab + "RUC: " + vbTab + vbTab + Cliente.Ruc + vbNewLine +
                             "Dirección: " + vbTab + Cliente.Direccion + vbTab + vbTab + vbTab + "Teléfono: " + vbTab + Cliente.Telefono + vbNewLine +
                           "--------------------------------------------------------------------------------" + vbNewLine +
                           "                                    DETALLE                                     " + vbNewLine +

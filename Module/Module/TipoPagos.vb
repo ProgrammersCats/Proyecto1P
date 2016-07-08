@@ -1,7 +1,7 @@
 ﻿Imports System.Xml
 
 Public Class TipoPagos
-    Dim path As String = "C:\Users\Marcitech\Source\Repos\Proyecto1P\Module\Module\tiposPagos.xml"
+    Dim path As String = "E:\Visual\Proyecto1P\Module\Module\tiposPagos.xml"
     Dim xmlDom As New XmlDocument()
     Private _efectivo As Double
     Public Property Efectivo() As Double
