@@ -38,7 +38,7 @@ Module Module1
                     Dim adm As New Admin(usuario, contraseña)
 
                     If (adm.ValidarDatos()) Then
-                        adm.AsignarRepositorios(repositorioProd, repositorioProv, pagos)
+                        adm.AsignarRepositorios(repositorioProd, repositorioProv, pagos, repositorioFact)
                         Do While (True)
 
                             Console.WriteLine("================================ " + "ADMINISTRADOR" + " ================================")
@@ -47,7 +47,8 @@ Module Module1
                             Console.WriteLine("3.  Modificar IVA de provincias")
                             Console.WriteLine("4.  Modificar Tipos de Pago")
                             Console.WriteLine("5.  Cerrar Sesión")
-                            Console.Write("Elija una opción(1-5): ")
+                            Console.WriteLine("6. Mostrar Reporte de Ventas")
+                            Console.Write("Elija una opción(1-6): ")
                             Dim op2 As String
                             op2 = Console.ReadLine()
 
@@ -73,6 +74,8 @@ Module Module1
                                 Case 5
                                     Salir()
                                     Exit Do
+                                Case 6
+                                    adm.MostrarReporteVentas()
                                 Case Else
                                     Console.WriteLine("* OPCIÓN INCORRECTA !! *")
                                     Salir()

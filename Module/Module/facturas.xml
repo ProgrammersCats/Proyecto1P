@@ -1,13 +1,13 @@
 <collection>
   <factura>
     <nroFactura>0</nroFactura>
-    <fecha>08/07/2016 11:04:40</fecha>
+    <fecha>08/07/2016 13:10:19</fecha>
     <cliente>
-      <nombre>s</nombre>
-      <apellido>s</apellido>
-      <telefono>s</telefono>
-      <direccion>s</direccion>
-      <ruc>s</ruc>
+      <nombre>Carmen</nombre>
+      <apellido>Alava</apellido>
+      <telefono>2013221</telefono>
+      <direccion>sauces</direccion>
+      <ruc>0999658</ruc>
     </cliente>
     <Vendedor>
       <nombre>Kimmy</nombre>
@@ -15,20 +15,44 @@
       <telefono>2020456</telefono>
       <direccion>Metropolis</direccion>
     </Vendedor>
-    <subtotal>0</subtotal>
-    <iva>0</iva>
-    <total>0</total>
-    <devolucion>0</devolucion>
+    <detalle>
+      <Item>
+        <id_producto>002</id_producto>
+        <descripcion>Maleta</descripcion>
+        <costo>15</costo>
+        <precio>20</precio>
+      </Item>
+      <codigo>
+      </codigo>
+      <cantidad>5</cantidad>
+      <totalDetalle>100</totalDetalle>
+    </detalle>
+    <detalle>
+      <Item>
+        <id_producto>006</id_producto>
+        <descripcion>Lapiz</descripcion>
+        <costo>50</costo>
+        <precio>100</precio>
+      </Item>
+      <codigo>
+      </codigo>
+      <cantidad>4</cantidad>
+      <totalDetalle>400</totalDetalle>
+    </detalle>
+    <subtotal>500</subtotal>
+    <iva>70</iva>
+    <total>570</total>
+    <devolucion>22,8</devolucion>
   </factura>
   <factura>
     <nroFactura>1</nroFactura>
-    <fecha>08/07/2016 11:05:33</fecha>
+    <fecha>08/07/2016 13:12:09</fecha>
     <cliente>
-      <nombre>s</nombre>
-      <apellido>s</apellido>
-      <telefono>s</telefono>
-      <direccion>s</direccion>
-      <ruc>s</ruc>
+      <nombre>Andrea</nombre>
+      <apellido>Jurado</apellido>
+      <telefono>256410</telefono>
+      <direccion>Samanes</direccion>
+      <ruc>09666544</ruc>
     </cliente>
     <Vendedor>
       <nombre>Kimmy</nombre>
@@ -36,9 +60,21 @@
       <telefono>2020456</telefono>
       <direccion>Metropolis</direccion>
     </Vendedor>
-    <subtotal>0</subtotal>
-    <iva>0</iva>
-    <total>0</total>
+    <detalle>
+      <Item>
+        <id_producto>004</id_producto>
+        <descripcion>Cartuchera</descripcion>
+        <costo>10</costo>
+        <precio>14</precio>
+      </Item>
+      <codigo>
+      </codigo>
+      <cantidad>6</cantidad>
+      <totalDetalle>84</totalDetalle>
+    </detalle>
+    <subtotal>84</subtotal>
+    <iva>11,76</iva>
+    <total>95,76</total>
     <devolucion>0</devolucion>
   </factura>
 </collection>

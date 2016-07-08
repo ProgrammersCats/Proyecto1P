@@ -127,7 +127,7 @@ Public Class Factura
     Private _devolucion As Double
     Public Property Devolucion() As Double
         Get
-            Return (_devolucion * Me.Total) / 100
+            Return (Me.Total * _devolucion) / 100
         End Get
         Set(ByVal value As Double)
             _devolucion = value
@@ -163,12 +163,12 @@ Public Class Factura
 
     Public Sub AgregarProducto(prod As Producto)
 
-        Dim cantidad As String
+        Dim cantidad As Integer
         Console.Write("Cantidad: ")
         cantidad = Console.ReadLine()
         Select Case cantidad
             Case 0 To 1000
-                Dim detalle As New Detalle(prod, CInt(cantidad))
+                Dim detalle As New Detalle(prod, cantidad)
                 Me.Detalles.Add(detalle)
                 Me.MostrarDetalles()
             Case Else

@@ -54,10 +54,19 @@ Public Class Admin
             _repositorioProvincias = value
         End Set
     End Property
-
-    Public Sub AsignarRepositorios(repositorioProd As RepositorioProductos, repositorioProv As RepositorioProvincias, tipoP As TipoPagos)
+    Private _repositorioFactura As RepositorioFactura
+    Public Property RepositorioFactura() As RepositorioFactura
+        Get
+            Return _repositorioFactura
+        End Get
+        Set(ByVal value As RepositorioFactura)
+            _repositorioFactura = value
+        End Set
+    End Property
+    Public Sub AsignarRepositorios(repositorioProd As RepositorioProductos, repositorioProv As RepositorioProvincias, tipoP As TipoPagos, repositorioFact As RepositorioFactura)
         Me.RepositorioProductos = repositorioProd
         Me.RepositorioProvincias = repositorioProv
+        Me.RepositorioFactura = repositorioFact
         Me.TipoPagos = tipoP
     End Sub
     Public Sub ModificarPagos()
@@ -112,6 +121,22 @@ Public Class Admin
         End If
         Return False
     End Function
+
+    Public Sub MostrarReporteVentas()
+        Console.WriteLine("===== REPORTE DE VENTAS =====")
+        Dim acumuladorIva, acumuladorTotal As Double
+        For Each fact As Factura In Me.RepositorioFactura.ArrayFacturas
+            ' Nro. de factura, Subtotal sin Iva, IVA, Total, Cliente, Cédula
+            Console.WriteLine("--------------------------------------------")
+            Console.WriteLine("Número de Factura: " & fact.NumeroFactura & vbNewLine + "Cliente: " + fact.Cliente.Nombre + vbTab + vbNewLine +
+                              "Subtotal: " & fact.Subtotal & vbNewLine + "IVA: " & fact.IVA)
+            acumuladorIva += fact.IVA
+            acumuladorTotal += fact.Total
+            Console.WriteLine("--------------------------------------------")
+        Next
+        Console.WriteLine("Acumulador IVA:" & acumuladorIva)
+        Console.WriteLine("Acumulador Total:" & acumuladorTotal)
+    End Sub
 
     Public Sub ModificarIva()
         Me.RepositorioProvincias.MostrarProvincias()
