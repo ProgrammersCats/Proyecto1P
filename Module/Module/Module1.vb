@@ -132,6 +132,12 @@ Module Module1
                                                 flagProv = False
                                             End If
                                         Loop
+                                        Dim flagPago As Boolean = True
+                                        Do While (flagPago)
+                                            Console.WriteLine(pagos.ToString())
+                                            fact.Devolucion = pagos.ElegirTipoPago()
+                                            Exit Do
+                                        Loop
                                         fact.Cliente = cliente1
                                         fact.Vendedor = vendedor
                                         fact.LugarEmision = repositorioProv.ArrayProvincias.Item(0)

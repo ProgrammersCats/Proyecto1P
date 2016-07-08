@@ -122,4 +122,27 @@ Public Class TipoPagos
         " |" + vbNewLine + "|3. Dinero electronico: " + vbTab + " |" + vbTab & Me.DineroElectronico & vbTab + " |" + vbNewLine +
         "......................................................................"
     End Function
+
+    Public Function ElegirTipoPago()
+        Dim devolucion As Double
+        Do While (True)
+            Dim opPago As Integer
+            Console.Write("Eliga un tipo de pago:")
+            opPago = Console.ReadLine()
+            Select Case opPago
+                Case 1
+                    devolucion = Me.Efectivo
+                    Exit Do
+                Case 2
+                    devolucion = Me.Tarjeta
+                    Exit Do
+                Case 3
+                    devolucion = Me.DineroElectronico
+                    Exit Do
+                Case Else
+                    Console.WriteLine("Opcion no válida")
+            End Select
+        Loop
+        Return devolucion
+    End Function
 End Class
